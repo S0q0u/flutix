@@ -1,0 +1,6 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "cmake.configureOnOpen": false,
+    "cmake.sourceDirectory": "D:/Code/Flutter/piranti_bergerak/windows/flutter",
+    "java.compile.nullAnalysis.mode": "automatic"
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "303823000990",
+    "project_id": "piranti-bergerak-a083d",
+    "storage_bucket": "piranti-bergerak-a083d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303823000990:android:55267bd12c5426d098b28f",
+        "android_client_info": {
+          "package_name": "com.example.piranti_bergerak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVoSrWQajHn5PkpDeN8IfO6JqGsMNsyp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
