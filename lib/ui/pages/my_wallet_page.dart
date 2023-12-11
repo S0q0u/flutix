@@ -135,52 +135,93 @@ class _MyWalletPageState extends State<MyWalletPage> {
           ),
 
           // Container untuk daftar top-up
-          SizedBox(
-            height: 370,
-            child: RawScrollbar(
+          // SizedBox(
+          //   height: 370,
+          //   child: RawScrollbar(
+          //     controller: _scrollController,
+          //     thumbColor: const Color.fromARGB(255, 248, 30, 67),
+          //     thumbVisibility: true,
+          //     trackVisibility: false,
+          //     child: ListView.builder(
+          //       controller: _scrollController,
+          //       scrollDirection: Axis.vertical,
+          //       itemCount: 10,
+          //       itemBuilder: (context, index) {
+          //         final formattedAmount = NumberFormat("#,##0", "id_ID")
+          //             .format(50000 * (index + 1));
+          //         return GestureDetector(
+          //           onTap: () {
+          //             setState(() {
+          //               selectedTopUpIndex = index;
+          //             });
+          //           },
+          //           child: Container(
+          //             color: selectedTopUpIndex == index
+          //                 ? const Color.fromARGB(255, 238, 51, 82) // Warna terpilih
+          //                 : Colors.white,
+          //             margin:
+          //                 const EdgeInsets.only(top: 10, left: 20, right: 20),
+          //             padding: const EdgeInsets.all(10),
+          //             child: Row(
+          //               children: [
+          //                 Image.asset('assets/topUp.png',
+          //                     width: 50, height: 30),
+          //                 const SizedBox(width: 10),
+          //                 Text(
+          //                   'Rp. $formattedAmount',
+          //                   style: const TextStyle(
+          //                     color: Colors.black,
+          //                     fontFamily: 'Roboto',
+          //                     fontSize: 14,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //         );
+          //       },
+          //     ),
+          //   ),
+          // ),
+          Expanded(
+            child: ListView.builder(
               controller: _scrollController,
-              thumbColor: const Color.fromARGB(255, 248, 30, 67),
-              thumbVisibility: true,
-              trackVisibility: false,
-              child: ListView.builder(
-                controller: _scrollController,
-                scrollDirection: Axis.vertical,
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  final formattedAmount = NumberFormat("#,##0", "id_ID")
-                      .format(50000 * (index + 1));
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedTopUpIndex = index;
-                      });
-                    },
-                    child: Container(
-                      color: selectedTopUpIndex == index
-                          ? const Color.fromARGB(255, 238, 51, 82) // Warna terpilih
-                          : Colors.white,
-                      margin:
-                          const EdgeInsets.only(top: 10, left: 20, right: 20),
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/topUp.png',
-                              width: 50, height: 30),
-                          const SizedBox(width: 10),
-                          Text(
-                            'Rp. $formattedAmount',
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Roboto',
-                              fontSize: 14,
-                            ),
+              scrollDirection: Axis.vertical,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                final formattedAmount = NumberFormat("#,##0", "id_ID")
+                    .format(50000 * (index + 1));
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedTopUpIndex = index;
+                    });
+                  },
+                  child: Container(
+                    color: selectedTopUpIndex == index
+                        ? const Color.fromARGB(255, 238, 51, 82) // Warna terpilih
+                        : Colors.white,
+                    margin:
+                    const EdgeInsets.only(top: 10, left: 20, right: 20),
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Image.asset('assets/topUp.png',
+                            width: 50, height: 30),
+                        const SizedBox(width: 10),
+                        Text(
+                          'Rp. $formattedAmount',
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Roboto',
+                            fontSize: 14,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
           ),
 
@@ -262,9 +303,12 @@ class _MyWalletPageState extends State<MyWalletPage> {
           //       color: Colors.white,
           //     ),
           //     label: const Text(
-          //       'Tambah Kendaraan',
+          //       'Confirm Top-Up',
           //       style: TextStyle(
-          //         color: Colors.white,
+          //         color: Color(0xFF393E46),
+          //         fontFamily: 'Raleway',
+          //         fontSize: 13,
+          //         fontWeight: FontWeight.bold,
           //       ),
           //     ),
           //   ),
