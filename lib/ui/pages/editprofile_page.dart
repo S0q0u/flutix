@@ -223,11 +223,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         await userData.updateField("profile", imagePath);
                       }
                       if (!context.mounted) return;
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) {
-                          return const ProfilePage();
-                        },
-                      ));
+                      Navigator.of(context).pop();
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) {
+                      //     return const ProfilePage();
+                      //   },
+                      // ));
                     } else {
                       await userData.updateField("nama", _nameController.text);
                       if (imagePath != "") {
@@ -235,11 +236,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       }
                       await userData.changePassword(_passwordController.text);
                       if (!context.mounted) return;
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) {
-                          return const ProfilePage();
-                        },
-                      ));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) {
+                      //     return const ProfilePage();
+                      //   },
+                      // ));
+                      Navigator.of(context).pop();
                     }
                   },
                   child: const Text(

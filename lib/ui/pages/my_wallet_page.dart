@@ -186,7 +186,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
 
           // Tombol "Confirm Top-Up"
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+            margin: EdgeInsets.all(10),
             child: ElevatedButton(
               onPressed: () async {
                 await userData.updateField("wallet",
@@ -214,7 +214,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
                 ),
               ),
               child: Container(
-                width: 270,
+                //width: 270,
                 padding: const EdgeInsets.all(8),
                 alignment: Alignment.center,
                 child: const Text(
@@ -229,6 +229,46 @@ class _MyWalletPageState extends State<MyWalletPage> {
               ),
             ),
           ),
+
+          // Container(
+          //   margin: EdgeInsets.all(10),
+          //   child: ElevatedButton.icon(
+          //     onPressed: () async {
+          //       await userData.updateField("wallet",
+          //           userData.data!.wallet! + amounts[selectedTopUpIndex!]);
+          //       if (!context.mounted) return;
+          //       Navigator.of(context).push(MaterialPageRoute(
+          //         builder: (context) {
+          //           return const TopUpSuccessPage();
+          //         },
+          //       ));
+          //     },
+          //     style: ElevatedButton.styleFrom(
+          //       //backgroundColor: selectedTheme.primaryColor,
+          //       minimumSize:
+          //       const Size(250, 50), // Atur lebar dan tinggi button
+          //       padding: const EdgeInsets.symmetric(
+          //         vertical: 10,
+          //         horizontal: 16,
+          //       ), // Padding di sekitar icon dan teks
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(
+          //           15.0, // Mengatur radius untuk membuat button rounded
+          //         ),
+          //       ),
+          //     ),
+          //     icon: const Icon(
+          //       Icons.add,
+          //       color: Colors.white,
+          //     ),
+          //     label: const Text(
+          //       'Tambah Kendaraan',
+          //       style: TextStyle(
+          //         color: Colors.white,
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

@@ -36,12 +36,14 @@ class _MoviesState extends State<Movies> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height - 130;
+    int totalGenre = _genre.length;
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
         Container(
           width: width,
-          margin: const EdgeInsets.only(top: 25, bottom: 5),
+          margin: const EdgeInsets.only(top: 15, bottom: 10, left: 10),
+          alignment: Alignment.topLeft,
           child: const Headtitle(
             text: "Now Playing",
             size: 16.0,
@@ -52,13 +54,16 @@ class _MoviesState extends State<Movies> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               // Data is still loading
-              return Padding(
-                padding:
-                    EdgeInsets.fromLTRB(width / 2.15, 50, width / 2.15, 50),
-                child: const CircularProgressIndicator(
-                  color: Color.fromARGB(255, 248, 30, 67),
+              return Container(
+                height: 160,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: CircularProgressIndicator(
+                    color: Color.fromARGB(255, 248, 30, 67),
+                  ),
                 ),
               );
+
             } else if (snapshot.hasError) {
               // Error occurred
               debugPrint("API failed: ${snapshot.error}");
@@ -82,9 +87,10 @@ class _MoviesState extends State<Movies> {
               // Data is available
               List<Film> films = snapshot.data as List<Film>;
               return Container(
-                margin: const EdgeInsets.only(top: 10),
-                width: width,
-                height: height * 2 / 8,
+                //margin: const EdgeInsets.only(top: 10),
+                // width: width,
+                // height: height * 2 / 8,
+                height: 160,
                 color: Colors.transparent,
                 child: RawScrollbar(
                   controller: _scrollController,
@@ -109,13 +115,12 @@ class _MoviesState extends State<Movies> {
                         },
                         child: Container(
                           alignment: Alignment.center,
-                          margin: const EdgeInsets.only(
-                              left: 12.5, right: 12.5, bottom: 15),
-                          width: (height * 2 / 8 - 45) / 1.1,
-                          height: height * 2 / 8 - 45,
+                          margin: const EdgeInsets.only(left: 10, bottom: 15),
+                          //width: (height * 2 / 8 - 45) / 1.1,
+                          //height: height * 2 / 8 - 45,
+                          width: 100,
                           decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(15)),
+                            borderRadius: const BorderRadius.all(Radius.circular(15)),
                             image: DecorationImage(
                               image: NetworkImage(film.thumbnailUrl!),
                               fit: BoxFit.cover,
@@ -130,9 +135,11 @@ class _MoviesState extends State<Movies> {
             }
           },
         ),
+
         Container(
           width: width,
-          margin: const EdgeInsets.only(top: 25, bottom: 5),
+          margin: const EdgeInsets.only(top: 25, bottom: 10, left: 10),
+          alignment: Alignment.topLeft,
           child: const Headtitle(
             text: "Movie Category",
             size: 16.0,
@@ -140,72 +147,43 @@ class _MoviesState extends State<Movies> {
         ),
         Container(
           width: width,
-          height: height * 3 / 8,
+          // height: height * 3 / 8,
+          height: 40,
           color: Colors.transparent,
-          child: GridView.builder(
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisSpacing: 15,
-              childAspectRatio: 1.5,
-              crossAxisCount: 2,
-            ),
-            itemCount: 12,
+            itemCount: totalGenre,
             itemBuilder: (BuildContext context, int index) {
-              return Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: (height * 3 / 16 - 20) / 1.4,
-                    height: height * 3 / 16 - 20,
-                    margin: const EdgeInsets.only(top: 5, left: 5),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 22, 23, 35),
-                        border: Border.all(color: Colors.white, width: 1)),
-                  ),
-                  AnimatedContainer(
-                    width: (height * 3 / 16 - 20) / 1.4,
-                    height: height * 3 / 16 - 20,
-                    duration: const Duration(milliseconds: 750),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 1)),
-                    child: Material(
-                      color: Color.fromARGB(255, 248, 30, 67),
-                      child: InkWell(
-                        onTap: () {},
-                        splashColor: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.heart_broken_outlined,
-                              color: Colors.white,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5),
-                              child: Text(
-                                _genre[index],
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: "Raleway",
-                                    fontSize: 10,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+              return Container(
+                width: 100,
+                margin: const EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 248, 30, 67),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    _genre[index],
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontFamily: "Raleway",
+                      fontSize: 12,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w600,
                     ),
-                  )
-                ],
+                  ),
+                ),
               );
             },
           ),
         ),
+
         Container(
           width: width,
-          margin: const EdgeInsets.only(top: 25, bottom: 5),
+          margin: const EdgeInsets.only(top: 25, bottom: 10, left: 10),
+          alignment: Alignment.topLeft,
           child: const Headtitle(
             text: "Coming Soon",
             size: 16.0,
@@ -213,7 +191,8 @@ class _MoviesState extends State<Movies> {
         ),
         Container(
           width: width,
-          height: height * 3 / 8,
+          //height: height * 3 / 8,
+          height: 210,
           color: Colors.transparent,
           child: FutureBuilder<List<Film>>(
             future: Api.futureDataSoon,
@@ -247,8 +226,9 @@ class _MoviesState extends State<Movies> {
                       Film film = films[index];
                       return Container(
                         margin: const EdgeInsets.fromLTRB(5, 10, 5, 25),
-                        width: width * 6 / 8,
-                        height: height * 3 / 8 - 35,
+                        //width: width * 6 / 8,
+                        width: 280,
+                        //height: height * 3 / 8 - 35,
                         decoration: BoxDecoration(
                           borderRadius:
                               const BorderRadius.all(Radius.circular(15)),
@@ -261,14 +241,17 @@ class _MoviesState extends State<Movies> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              width: width * 6 / 8,
-                              height: (height * 3 / 8 - 35) * 6 / 8,
+                              //width: width * 6 / 8,
+                              //height: (height * 3 / 8 - 35) * 6 / 8,
+                              height: 135,
                             ),
                             Container(
-                              width: width * 6 / 8,
-                              height: (height * 3 / 8 - 35) * 2 / 8,
-                              padding: EdgeInsets.all(
-                                  ((height * 2 / 8) * 2 / 8) / 4),
+                              alignment: Alignment.bottomLeft,
+                              //width: width * 6 / 8,
+                              width: double.infinity,
+                              //height: (height * 3 / 8 - 35) * 2 / 8,
+                              height: 40,
+                              //padding: EdgeInsets.all(((height * 2 / 8) * 2 / 8) / 4),
                               decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(15),
@@ -276,15 +259,19 @@ class _MoviesState extends State<Movies> {
                                 ),
                                 color: Colors.white60,
                               ),
-                              child: Text(
-                                film.title ?? '',
-                                textAlign: TextAlign.left,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: "Raleway",
-                                  fontSize: 13,
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w500,
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  film.title ?? '',
+                                  textAlign: TextAlign.left,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Raleway",
+                                    fontSize: 13,
+                                    fontStyle: FontStyle.normal,
+                                    //fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             )
@@ -298,6 +285,7 @@ class _MoviesState extends State<Movies> {
             },
           ),
         ),
+
         Container(
           margin: const EdgeInsets.only(top: 25),
           width: width,
