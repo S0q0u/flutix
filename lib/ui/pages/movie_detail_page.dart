@@ -66,7 +66,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   child: IconButton(
                     icon: Icon(
                       Icons.arrow_back,
-                      color: Color(0xFF393E46),
+                      color: Colors.white,
                     ),
                     onPressed: () {
                       Navigator.of(context).pop();

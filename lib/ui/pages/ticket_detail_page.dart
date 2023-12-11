@@ -18,7 +18,7 @@ class TicketDetailPage extends StatelessWidget {
               height: 758,
               clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(
-                color: Color(0xFF393E46),
+                color: Colors.white,
                 boxShadow: [
                   BoxShadow(
                     color: Color(0x3F000000),

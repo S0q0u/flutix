@@ -61,7 +61,7 @@ class _TicketPageState extends State<TicketPage> {
               child: Text(
                 'Upcoming',
                 style: TextStyle(
-                  color: isUsedButtonActive ? Colors.black : Colors.grey,
+                  color: isUsedButtonActive ? Colors.white : Colors.grey,
                   fontSize: 12,
                 ),
               ),
@@ -84,7 +84,7 @@ class _TicketPageState extends State<TicketPage> {
               child: Text(
                 'Used',
                 style: TextStyle(
-                  color: !isUsedButtonActive ? Colors.black : Colors.grey,
+                  color: !isUsedButtonActive ? Colors.white : Colors.grey,
                   fontSize: 12,
                 ),
               ),
@@ -122,7 +122,7 @@ class TicketList extends StatelessWidget {
                 screenSize.width / 3,
                 screenSize.height / 2.5),
             child: const CircularProgressIndicator(
-              color:  Color.fromARGB(255, 248, 30, 67),
+              color: Color.fromARGB(255, 248, 30, 67),
             ),
           );
         } else if (snapshot.hasError) {

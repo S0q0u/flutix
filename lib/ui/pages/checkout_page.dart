@@ -46,13 +46,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         width: 40,
                         height: 40,
                         decoration: const ShapeDecoration(
-                          color: Color.fromARGB(120, 255, 221, 0),
+                          color: Color.fromARGB(255, 223, 128, 144),
                           shape: CircleBorder(),
                         ),
                         child: IconButton(
                           icon: const Icon(
                             Icons.arrow_back,
-                            color: Color(0xFF393E46),
+                            color: Colors.white,
                           ),
                           onPressed: () {
                             Navigator.of(context).pop();
@@ -88,7 +88,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   padding: const EdgeInsets.all(10),
-                  color: const Color(0xFF393E46),
+                  color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -232,7 +232,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 // Kontainer "user wallet"
                 Container(
                   decoration:
-                      const BoxDecoration(color: Color(0xFF393E46), boxShadow: [
+                      const BoxDecoration(color: Colors.white, boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
                       blurRadius: 2,
@@ -320,7 +320,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                     child: const Center(
                                       child: Icon(
                                         Icons.add,
-                                        color: Color(0xFF393E46),
+                                        color: Colors.white,
                                         size: 20,
                                       ),
                                     ),
@@ -361,8 +361,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color(0xFF393E46), // Warna abu-abu
+                            backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5),
                               side: BorderSide(

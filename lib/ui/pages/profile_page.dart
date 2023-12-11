@@ -14,18 +14,18 @@ class ProfilePage extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.center,
-                margin: const EdgeInsets.only(bottom: 16),
+                margin: const EdgeInsets.only(bottom: 10),
                 child: Stack(
                   children: [
                     Container(
                       padding: const EdgeInsets.all(4),
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: const Color.fromARGB(255, 248, 30, 67),
+                        color: Color.fromARGB(255, 248, 30, 67),
                       ),
                       child: CircleAvatar(
                           radius: 80,
-                          backgroundColor: const Color(0xFF393E46),
+                          backgroundColor: Colors.white,
                           backgroundImage:
                               NetworkImage(userData.data!.profile!)),
                     ),
@@ -54,7 +54,7 @@ class ProfilePage extends StatelessWidget {
 
         // Daftar menu profile
         Container(
-          color: const Color(0xFF393E46),
+          color: Colors.white,
           child: Column(
             children: [
               const Divider(

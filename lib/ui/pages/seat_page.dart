@@ -90,7 +90,7 @@ class _SeatState extends State<Seat> {
                     borderRadius: BorderRadius.circular(25),
                     color: const Color.fromARGB(255, 248, 30, 67),
                   ),
-                  child: const Icon(Icons.laptop_sharp),
+                  child: const Icon(Icons.laptop_sharp, color: Colors.white,),
                 ),
               ),
               Container(
@@ -105,7 +105,7 @@ class _SeatState extends State<Seat> {
                       height: 45,
                       child: const Headtitle(
                         text: "Pick your Seat !",
-                        size: 12.0,
+                        size: 18.0,
                       ),
                     ),
                     Row(
@@ -281,7 +281,7 @@ class _SeatState extends State<Seat> {
               child: const Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Pleaase Select First!',
+                  'Please Select First!',
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 15,
