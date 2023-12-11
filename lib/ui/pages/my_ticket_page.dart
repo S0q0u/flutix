@@ -52,8 +52,8 @@ class _TicketPageState extends State<TicketPage> {
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(196, 50),
                 backgroundColor: isUsedButtonActive
-                    ? const Color(0xFFFFDF00)
-                    : const Color(0xFFFFDF00),
+                    ? const Color.fromARGB(255, 248, 30, 67)
+                    : const Color.fromARGB(255, 248, 30, 67),
                 shape: const RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black, width: 0.5),
                 ),
@@ -75,8 +75,8 @@ class _TicketPageState extends State<TicketPage> {
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(196, 50),
                 backgroundColor: !isUsedButtonActive
-                    ? const Color(0xFFFFDF00)
-                    : const Color(0xFFFFDF00),
+                    ? const Color.fromARGB(255, 248, 30, 67)
+                    : const Color.fromARGB(255, 248, 30, 67),
                 shape: const RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black, width: 0.5),
                 ),
@@ -122,7 +122,7 @@ class TicketList extends StatelessWidget {
                 screenSize.width / 3,
                 screenSize.height / 2.5),
             child: const CircularProgressIndicator(
-              color: Color(0xFFFFDF00),
+              color:  Color.fromARGB(255, 248, 30, 67),
             ),
           );
         } else if (snapshot.hasError) {
@@ -149,7 +149,7 @@ class TicketList extends StatelessWidget {
           List<Ticket> tickets = snapshot.data as List<Ticket>;
           return RawScrollbar(
             controller: controller,
-            thumbColor: const Color(0xFFFFDF00),
+            thumbColor: const Color.fromARGB(255, 248, 30, 67),
             thumbVisibility: true,
             trackVisibility: false,
             child: ListView.builder(

@@ -143,8 +143,8 @@ class _UserProfileState extends State<UserProfile> {
                                     const Color.fromARGB(255, 248, 30, 67),
                                 borderWidth: 1,
                                 borderRadius: BorderRadius.circular(25),
-                                fillColor: const Color(0xFFDAA520),
-                                selectedBorderColor: const Color(0xFFDAA520),
+                                fillColor: const Color.fromARGB(255, 238, 51, 82),
+                                selectedBorderColor:const Color.fromARGB(255, 238, 51, 82),
                                 selectedColor: Colors.white,
                                 isSelected: [_selections1[index]],
                                 children: [
@@ -229,8 +229,8 @@ class _UserProfileState extends State<UserProfile> {
                                     const Color.fromARGB(255, 248, 30, 67),
                                 borderWidth: 1,
                                 borderRadius: BorderRadius.circular(25),
-                                fillColor: const Color(0xFFDAA520),
-                                selectedBorderColor: const Color(0xFFDAA520),
+                                fillColor: const Color.fromARGB(255, 238, 51, 82),
+                                selectedBorderColor: const Color.fromARGB(255, 238, 51, 82),
                                 selectedColor: Colors.white,
                                 isSelected: [_selections2[index]],
                                 children: [

@@ -21,7 +21,7 @@ class ProfilePage extends StatelessWidget {
                       padding: const EdgeInsets.all(4),
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Color(0xFFFFDF00),
+                        color: const Color.fromARGB(255, 248, 30, 67),
                       ),
                       child: CircleAvatar(
                           radius: 80,
@@ -145,7 +145,7 @@ class MenuItem extends StatelessWidget {
     return Material(
       color: const Color(0xff393e46),
       child: InkWell(
-        splashColor: const Color(0xFFDAA520),
+        splashColor: const Color.fromARGB(255, 238, 51, 82),
         onTap: onPressed,
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -154,7 +154,7 @@ class MenuItem extends StatelessWidget {
               Icon(
                 icon,
                 size: 40,
-                color: const Color(0xFFFFDF00),
+                color: const Color.fromARGB(255, 248, 30, 67),
               ),
               const SizedBox(width: 16),
               Text(

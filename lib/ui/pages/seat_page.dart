@@ -147,7 +147,7 @@ class _SeatState extends State<Seat> {
                                               color: const Color(0xFF969696),
                                               width: 1)),
                                       child: ToggleButtons(
-                                        fillColor: const Color(0xFFDAA520),
+                                        fillColor: const Color.fromARGB(255, 238, 51, 82),
                                         selectedColor: Colors.black,
                                         isSelected: [_selections[index]],
                                         children: [
@@ -205,7 +205,7 @@ class _SeatState extends State<Seat> {
                                               color: const Color(0xFF969696),
                                               width: 1)),
                                       child: ToggleButtons(
-                                        fillColor: const Color(0xFFDAA520),
+                                        fillColor: const Color.fromARGB(255, 238, 51, 82),
                                         selectedColor: Colors.black,
                                         isSelected: [_selections[index + 27]],
                                         children: [
@@ -247,7 +247,7 @@ class _SeatState extends State<Seat> {
                         text: "Unavailabe",
                       ),
                       SeatInfo(
-                        color: Color(0xFFDAA520),
+                        color: const Color.fromARGB(255, 238, 51, 82),
                         text: "Selected",
                       ),
                     ],
@@ -285,7 +285,7 @@ class _SeatState extends State<Seat> {
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 15,
-                    color: Color(0xffDAA520),
+                    color: const Color.fromARGB(255, 238, 51, 82),
                   ),
                 ),
               ),

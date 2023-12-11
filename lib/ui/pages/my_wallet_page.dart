@@ -58,7 +58,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
             child: const Text(
               'In-Balance',
               style: TextStyle(
-                color: Color(0xFFFFDF00),
+                color: const Color.fromARGB(255, 248, 30, 67),
                 fontFamily: 'Raleway',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                border: Border.all(color: const Color(0xFFFFDF00), width: 2),
+                border: Border.all(color: const Color.fromARGB(255, 248, 30, 67), width: 2),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +89,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Colors.yellow,
+                              color: Colors.pink,
                               width: 2,
                             ),
                           ),
@@ -112,7 +112,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
                           const Text(
                             'My Wallet',
                             style: TextStyle(
-                              color: Color(0xFFFFDF00),
+                              color:  Color.fromARGB(255, 248, 30, 67),
                               fontFamily: 'Raleway',
                               fontSize: 13,
                             ),
@@ -120,7 +120,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
                           Text(
                             "Rp. ${NumberFormat("#,##0", "id_ID").format(userDataListen.data!.wallet)}",
                             style: const TextStyle(
-                              color: Color(0xFFFFDF00),
+                              color:  Color.fromARGB(255, 248, 30, 67),
                               fontFamily: 'Roboto',
                               fontSize: 11,
                             ),
@@ -139,7 +139,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
             height: 370,
             child: RawScrollbar(
               controller: _scrollController,
-              thumbColor: const Color(0xFFFFDF00),
+              thumbColor: const Color.fromARGB(255, 248, 30, 67),
               thumbVisibility: true,
               trackVisibility: false,
               child: ListView.builder(
@@ -157,7 +157,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
                     },
                     child: Container(
                       color: selectedTopUpIndex == index
-                          ? const Color(0xFFDAA520) // Warna terpilih
+                          ? const Color.fromARGB(255, 238, 51, 82) // Warna terpilih
                           : Colors.white,
                       margin:
                           const EdgeInsets.only(top: 10, left: 20, right: 20),
@@ -202,10 +202,9 @@ class _MyWalletPageState extends State<MyWalletPage> {
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
                     if (states.contains(MaterialState.pressed)) {
-                      return const Color(
-                          0xFFDAA520); // Warna saat tombol ditekan
+                      return const Color.fromARGB(255, 238, 51, 82); // Warna saat tombol ditekan
                     }
-                    return const Color(0xFFFFDF00); // Warna default
+                    return const Color.fromARGB(255, 248, 30, 67); // Warna default
                   },
                 ),
                 shape: MaterialStateProperty.all(

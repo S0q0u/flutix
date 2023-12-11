@@ -14,8 +14,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
     UserData userData = Provider.of<UserData>(context);
     int price = 200000 * ticketData.ticket!.seats.length;
     Ticket ticket = ticketData.ticket!;
-    Color payColor =
-        userData.data!.wallet! < price ? Colors.red :  Color.fromARGB(255, 248, 30, 67);
+    Color payColor = userData.data!.wallet! < price
+        ? Colors.red
+        : Color.fromARGB(255, 248, 30, 67);
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -96,7 +97,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         child: Text(
                           ticket.film.title!,
                           style: const TextStyle(
-                            color: Color(0xFFFFDF00),
+                            color: Color.fromARGB(255, 248, 30, 67),
                             fontFamily: 'Raleway',
                             fontSize: 16,
                           ),
@@ -116,7 +117,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 8),
-                        color: const Color(0xFFFFDF00),
+                        color: const Color.fromARGB(255, 248, 30, 67),
                         height: 1,
                       ),
                       Row(
@@ -128,7 +129,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 'Cinema',
                                 style: TextStyle(
-                                  color: Color(0xFFFFDF00),
+                                  color: Color.fromARGB(255, 248, 30, 67),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -136,7 +137,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 'Date & Time',
                                 style: TextStyle(
-                                  color: Color(0xFFFFDF00),
+                                  color: Color.fromARGB(255, 248, 30, 67),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -144,7 +145,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 'Seat(s)',
                                 style: TextStyle(
-                                  color: Color(0xFFFFDF00),
+                                  color: Color.fromARGB(255, 248, 30, 67),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -157,7 +158,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 ticket.cinema,
                                 style: const TextStyle(
-                                  color: Color(0xFFFFDF00),
+                                  color: Color.fromARGB(255, 248, 30, 67),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -165,7 +166,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 ticket.time,
                                 style: const TextStyle(
-                                  color: Color(0xFFFFDF00),
+                                  color: Color.fromARGB(255, 248, 30, 67),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -173,7 +174,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 ticket.seats.join(", "),
                                 style: const TextStyle(
-                                  color: Color(0xFFFFDF00),
+                                  color: Color.fromARGB(255, 248, 30, 67),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -184,7 +185,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 8),
-                        color: const Color(0xFFFFDF00),
+                        color: const Color.fromARGB(255, 248, 30, 67),
                         height: 1,
                       ),
                       Row(
@@ -196,7 +197,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 const Text(
                                   'Price',
                                   style: TextStyle(
-                                    color: Color(0xFFFFDF00),
+                                    color: Color.fromARGB(255, 248, 30, 67),
                                     fontFamily: 'Raleway',
                                     fontSize: 13,
                                   ),
@@ -204,7 +205,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 Text(
                                   '${ticketData.ticket!.seats.length}x200,000',
                                   style: const TextStyle(
-                                    color: Color(0xFFFFDF00),
+                                    color: Color.fromARGB(255, 248, 30, 67),
                                     fontFamily: 'Raleway',
                                     fontSize: 11,
                                   ),
@@ -216,7 +217,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 Text(
                                   "Rp. ${NumberFormat("#,##0", "id_ID").format(price)}",
                                   style: const TextStyle(
-                                    color: Color(0xFFFFDF00),
+                                    color: Color.fromARGB(255, 248, 30, 67),
                                     fontFamily: 'Raleway',
                                     fontSize: 13,
                                   ),
@@ -248,7 +249,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             border: Border.all(
-                                color: const Color(0xFFFFDF00), width: 2),
+                                color: const Color.fromARGB(255, 248, 30, 67),
+                                width: 2),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -262,7 +264,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         border: Border.all(
-                                          color: Colors.yellow,
+                                          color: Colors.pink,
                                           width: 2,
                                         ),
                                       ),
@@ -280,7 +282,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                       const Text(
                                         'My Wallet',
                                         style: TextStyle(
-                                          color: Color(0xFFFFDF00),
+                                          color:
+                                              Color.fromARGB(255, 248, 30, 67),
                                           fontFamily: 'Raleway',
                                           fontSize: 13,
                                         ),
@@ -312,7 +315,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                     height: 35,
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Colors.yellow,
+                                      color: Colors.pink,
                                     ),
                                     child: const Center(
                                       child: Icon(

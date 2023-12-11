@@ -29,9 +29,9 @@ class _HomeState extends State<Home> {
         body: navMenu[_index],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color.fromARGB(255, 22, 23, 35),
+          backgroundColor: const Color.fromARGB(255, 22, 23, 35),
           unselectedItemColor: Colors.white,
-          selectedItemColor: Color.fromARGB(255, 248, 30, 67),
+          selectedItemColor: const Color.fromARGB(255, 248, 30, 67),
           currentIndex: _index,
           // onTap: ,
           onTap: (int index) {

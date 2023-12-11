@@ -170,7 +170,7 @@ class _SignUpState extends State<SignUp> {
                         height: 60,
                         child: TextFormField(
                           autocorrect: true,
-                          controller: _ctrlEmail,
+                          controller: _ctrlNama,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Nama masih kosong';
@@ -317,7 +317,7 @@ class _SignUpState extends State<SignUp> {
                                   return const Color.fromARGB(255, 248, 30, 67);
                                 } else {
                                   isButtonPressed = false;
-                                  return const Color.fromARGB(255, 233, 33, 66);
+                                  return const Color.fromARGB(255, 238, 51, 82);
                                 }
                               },
                             ),

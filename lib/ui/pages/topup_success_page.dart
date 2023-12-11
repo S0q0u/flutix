@@ -114,7 +114,7 @@ class TopUpSuccessPage extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 248, 30, 67),
-                      foregroundColor: const Color(0xFFDAA520),
+                      foregroundColor: const Color.fromARGB(255, 238, 51, 82),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -147,7 +147,7 @@ class TopUpSuccessPage extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFFDAA520),
+                      foregroundColor: const Color.fromARGB(255, 238, 51, 82),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                         side: const BorderSide(

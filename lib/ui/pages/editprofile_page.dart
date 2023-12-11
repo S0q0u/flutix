@@ -43,7 +43,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     fontFamily: 'Raleway',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFFFFDF00),
+                    color: const Color.fromARGB(255, 248, 30, 67),
                   ),
                 ),
                 const SizedBox(height: 70),
@@ -56,14 +56,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       labelText: "Username",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelStyle: const TextStyle(
-                        color: Color(0xFFFFDF00),
+                        color: const Color.fromARGB(255, 248, 30, 67),
                         fontSize: 22.0,
                       ),
                       hintStyle: const TextStyle(
                           color: Color(0xFFFFFFFF), fontSize: 16.0),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(color: Color(0xFFFFDF00)),
+                        borderSide: const BorderSide(color: const Color.fromARGB(255, 248, 30, 67),),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
@@ -87,27 +87,26 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       labelText: "Password",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelStyle: const TextStyle(
-                        color: Color(0xFFFFDF00),
+                        color:  Color.fromARGB(255, 248, 30, 67),
                         fontSize: 22.0,
                       ),
                       hintStyle: const TextStyle(
                           color: Color(0xFFFFFFFF), fontSize: 16.0),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(color: Color(0xFFFFDF00)),
+                        borderSide: const BorderSide(color: const Color.fromARGB(255, 248, 30, 67),),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
                         borderSide: const BorderSide(
-                            color: Color(
-                                0xFFFFDF00)), // Mengubah warna border saat dalam fokus
+                            color:  Color.fromARGB(255, 248, 30, 67),), // Mengubah warna border saat dalam fokus
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _isPasswordHidden
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: const Color(0xFFFFDF00),
+                          color: const Color.fromARGB(255, 248, 30, 67),
                         ),
                         onPressed: () {
                           setState(() {
@@ -135,7 +134,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                     image: NetworkImage(imagePath),
                                     fit: BoxFit.cover),
                                 border:
-                                    Border.all(color: const Color(0xFFFFDF00)),
+                                    Border.all(color: const Color.fromARGB(255, 248, 30, 67),),
                                 borderRadius: BorderRadius.circular(
                                     70), // Menjadikan container menjadi bulat
                               ),
@@ -152,7 +151,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                         NetworkImage(userData.data!.profile!),
                                     fit: BoxFit.cover),
                                 border:
-                                    Border.all(color: const Color(0xFFFFDF00)),
+                                    Border.all(color: const Color.fromARGB(255, 248, 30, 67),),
                                 borderRadius: BorderRadius.circular(
                                     70), // Menjadikan container menjadi bulat
                               ),
@@ -180,14 +179,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           },
                           style: OutlinedButton.styleFrom(
                             backgroundColor: uploadPressed
-                                ? const Color(0xFFDAA520)
+                                ? const Color.fromARGB(255, 238, 51, 82)
                                 : const Color(0xFF393E46),
-                            foregroundColor: const Color(0xFFDAA520),
+                            foregroundColor: const Color.fromARGB(255, 238, 51, 82),
                             side: BorderSide(
                               width: 1,
                               color: uploadPressed
-                                  ? const Color(0xFFDAA520)
-                                  : const Color(0xFFFFDF00),
+                                  ? const Color.fromARGB(255, 238, 51, 82)
+                                  : const Color.fromARGB(255, 248, 30, 67),
                             ),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 50.0, vertical: 10.0),
@@ -201,7 +200,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 fontFamily: 'Raleway',
                                 color: uploadPressed
                                     ? const Color(0xFF000000)
-                                    : const Color(0xFFFFDF00),
+                                    : const Color.fromARGB(255, 248, 30, 67),
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -213,8 +212,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 const SizedBox(height: 50),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: const Color(0xFFDAA520),
-                    backgroundColor: const Color(0xFFFFDF00),
+                    foregroundColor: const Color.fromARGB(255, 238, 51, 82),
+                    backgroundColor: const Color.fromARGB(255, 248, 30, 67),
                     padding: const EdgeInsets.symmetric(horizontal: 138.0),
                   ),
                   onPressed: () async {
@@ -262,14 +261,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: backPressed
-                        ? const Color(0xFFDAA520)
+                        ? const Color.fromARGB(255, 238, 51, 82)
                         : const Color(0xFF393E46),
-                    foregroundColor: const Color(0xFFDAA520),
+                    foregroundColor: const Color.fromARGB(255, 238, 51, 82),
                     side: BorderSide(
                       width: 1,
                       color: backPressed
-                          ? const Color(0xFFDAA520)
-                          : const Color(0xFFFFDF00),
+                          ? const Color.fromARGB(255, 238, 51, 82)
+                          : const Color.fromARGB(255, 248, 30, 67),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 149.0),
                   ),
@@ -279,7 +278,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         fontFamily: 'Raleway',
                         color: backPressed
                             ? const Color(0xFF000000)
-                            : const Color(0xFFFFDF00),
+                            : const Color.fromARGB(255, 248, 30, 67),
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
