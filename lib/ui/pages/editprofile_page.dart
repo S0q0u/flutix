@@ -43,7 +43,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     fontFamily: 'Raleway',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 248, 30, 67),
+                    color: Color.fromARGB(255, 248, 30, 67),
                   ),
                 ),
                 const SizedBox(height: 70),
@@ -56,20 +56,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       labelText: "Username",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelStyle: const TextStyle(
-                        color: const Color.fromARGB(255, 248, 30, 67),
+                        color: Color.fromARGB(255, 248, 30, 67),
                         fontSize: 22.0,
                       ),
                       hintStyle: const TextStyle(
                           color: Color(0xFFFFFFFF), fontSize: 16.0),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(color: const Color.fromARGB(255, 248, 30, 67),),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 248, 30, 67),
+                        ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
                         borderSide: const BorderSide(
-                            color: Color(
-                                0xFFFFDF00)), // Mengubah warna border saat dalam fokus
+                          color: Color.fromARGB(255, 248, 30, 67),
+                        ), // Mengubah warna border saat dalam fokus
                       ),
                     ),
                     style: const TextStyle(color: Color(0xFFFFFFFF)),
@@ -87,19 +89,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       labelText: "Password",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       labelStyle: const TextStyle(
-                        color:  Color.fromARGB(255, 248, 30, 67),
+                        color: Color.fromARGB(255, 248, 30, 67),
                         fontSize: 22.0,
                       ),
                       hintStyle: const TextStyle(
                           color: Color(0xFFFFFFFF), fontSize: 16.0),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(color: const Color.fromARGB(255, 248, 30, 67),),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 248, 30, 67),
+                        ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(7.0),
                         borderSide: const BorderSide(
-                            color:  Color.fromARGB(255, 248, 30, 67),), // Mengubah warna border saat dalam fokus
+                          color: Color.fromARGB(255, 248, 30, 67),
+                        ), // Mengubah warna border saat dalam fokus
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -133,8 +138,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 image: DecorationImage(
                                     image: NetworkImage(imagePath),
                                     fit: BoxFit.cover),
-                                border:
-                                    Border.all(color: const Color.fromARGB(255, 248, 30, 67),),
+                                border: Border.all(
+                                  color: const Color.fromARGB(255, 248, 30, 67),
+                                ),
                                 borderRadius: BorderRadius.circular(
                                     70), // Menjadikan container menjadi bulat
                               ),
@@ -150,8 +156,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                     image:
                                         NetworkImage(userData.data!.profile!),
                                     fit: BoxFit.cover),
-                                border:
-                                    Border.all(color: const Color.fromARGB(255, 248, 30, 67),),
+                                border: Border.all(
+                                  color: const Color.fromARGB(255, 248, 30, 67),
+                                ),
                                 borderRadius: BorderRadius.circular(
                                     70), // Menjadikan container menjadi bulat
                               ),
@@ -181,7 +188,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             backgroundColor: uploadPressed
                                 ? const Color.fromARGB(255, 238, 51, 82)
                                 : const Color(0xFF393E46),
-                            foregroundColor: const Color.fromARGB(255, 238, 51, 82),
+                            foregroundColor:
+                                const Color.fromARGB(255, 238, 51, 82),
                             side: BorderSide(
                               width: 1,
                               color: uploadPressed
