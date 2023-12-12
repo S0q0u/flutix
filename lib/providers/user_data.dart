@@ -51,6 +51,23 @@ class UserData extends ChangeNotifier {
 
       // Update the specified field with the new value
       await documentReference.update({fieldName: newValue});
+      _data!.nama = newValue;
+
+      debugPrint('Document field updated successfully.');
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error updating document field: $e');
+    }
+  }
+
+  Future<void> updateFieldwallet(String fieldName, dynamic newValue) async {
+    try {
+      // Reference to the document you want to update
+      DocumentReference documentReference =
+          FirebaseFirestore.instance.collection('users').doc(id);
+
+      // Update the specified field with the new value
+      await documentReference.update({fieldName: newValue});
       _data!.wallet = newValue;
 
       debugPrint('Document field updated successfully.');
