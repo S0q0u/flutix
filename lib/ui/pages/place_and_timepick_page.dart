@@ -52,10 +52,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
 
   @override
   Widget build(BuildContext context) {
-    var lebar = MediaQuery.of(context).size.width;
     var width = MediaQuery.of(context).size.width;
-    var w = MediaQuery.of(context).size.width - 50;
-    var h = MediaQuery.of(context).size.height - 257;
     Ticket ticket = Provider.of<TicketData>(context, listen: false).ticket!;
 
     return Scaffold(
@@ -71,7 +68,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
             //fontSize: 15,
           ),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -86,9 +83,9 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                     width: width,
                     margin: const EdgeInsets.only(left: 10, bottom: 10, top: 10),
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       'Cinema',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Raleway',
                         fontSize: 18,
@@ -137,7 +134,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                                         mainAxisAlignment:
                                         MainAxisAlignment.center,
                                         children: [
-                                          Icon(
+                                          const Icon(
                                             Icons.place,
                                             // color: _selectionsCinema[index]
                                             //     ? Colors.white
@@ -149,7 +146,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                                             padding: const EdgeInsets.all(8.0),
                                             child: Text(
                                               _location[index],
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontFamily: 'Raleway',
                                                 fontSize: 10,
                                                 // color: _selectionsCinema[index]
@@ -192,9 +189,9 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                     width: width,
                     margin: const EdgeInsets.only(left: 10, bottom: 10, top: 25),
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       'Date',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Raleway',
                         fontSize: 18,
@@ -237,7 +234,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                                         children: [
                                           Text(
                                             _day[index],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontFamily: 'Raleway',
                                               fontSize: 12,
                                               // color: _selectionsDay[index]
@@ -250,7 +247,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                                           const SizedBox(height: 7),
                                           Text(
                                             "0${index + 1}", // Menampilkan angka 1 sampai 7
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontFamily: 'Raleway',
                                               fontSize: 12,
                                               // color: _selectionsDay[index]
@@ -292,9 +289,9 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                     width: width,
                     margin: const EdgeInsets.only(left: 10, bottom: 10, top: 25),
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       'Screen Time',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Raleway',
                         fontSize: 18,
@@ -331,7 +328,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                                     child: Center(
                                       child: Text(
                                         _time[index],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontFamily: 'Raleway',
                                           fontSize: 13,
                                           color: Colors.white,
@@ -450,7 +447,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
+                const Expanded(
                   child: Text(
                     'Select Your Seat',
                     style: TextStyle(
@@ -469,7 +466,7 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                   width: 60,
                   height: 60,
                   child: IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward,
                       color: Colors.white,
                       size: 50,

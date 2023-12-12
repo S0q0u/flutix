@@ -305,29 +305,6 @@ class _SignUpState extends State<SignUp> {
                         onPressed: () {
                           handleSubmit();
                         },
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(330, 40),
-                        ).merge(
-                          ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.resolveWith<Color>(
-                              (Set<MaterialState> states) {
-                                if (states.contains(MaterialState.pressed)) {
-                                  isButtonPressed = true;
-                                  return const Color.fromARGB(255, 248, 30, 67);
-                                } else {
-                                  isButtonPressed = false;
-                                  return imagePath
-                                          .isNotEmpty // Periksa apakah foto sudah dipilih
-                                      ? const Color.fromARGB(255, 238, 51,
-                                          82) // Jika sudah, aktifkan tombol
-                                      : Colors
-                                          .grey; // Jika belum, nonaktifkan tombol
-                                }
-                              },
-                            ),
-                          ),
-                        ),
                         // style: ElevatedButton.styleFrom(
                         //   fixedSize: const Size(330, 40),
                         // ).merge(
@@ -340,12 +317,35 @@ class _SignUpState extends State<SignUp> {
                         //           return const Color.fromARGB(255, 248, 30, 67);
                         //         } else {
                         //           isButtonPressed = false;
-                        //           return const Color.fromARGB(255, 238, 51, 82);
+                        //           return imagePath
+                        //                   .isNotEmpty // Periksa apakah foto sudah dipilih
+                        //               ? const Color.fromARGB(255, 238, 51,
+                        //                   82) // Jika sudah, aktifkan tombol
+                        //               : Colors
+                        //                   .grey; // Jika belum, nonaktifkan tombol
                         //         }
                         //       },
                         //     ),
                         //   ),
                         // ),
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(330, 40),
+                        ).merge(
+                          ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.resolveWith<Color>(
+                              (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.pressed)) {
+                                  isButtonPressed = true;
+                                  return const Color.fromARGB(255, 248, 30, 67);
+                                } else {
+                                  isButtonPressed = false;
+                                  return Colors.grey;
+                                }
+                              },
+                            ),
+                          ),
+                        ),
                         child: const Text(
                           'Sign Up',
                           style: TextStyle(

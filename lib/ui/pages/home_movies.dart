@@ -56,7 +56,7 @@ class _MoviesState extends State<Movies> {
               // Data is still loading
               return Container(
                 height: 160,
-                child: Align(
+                child: const Align(
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(
                     color: Color.fromARGB(255, 248, 30, 67),
@@ -94,7 +94,7 @@ class _MoviesState extends State<Movies> {
                 color: Colors.transparent,
                 child: RawScrollbar(
                   controller: _scrollController,
-                  thumbColor: Color.fromRGBO(253,1,120, 1),
+                  thumbColor: const Color.fromRGBO(253,1,120, 1),
                   thumbVisibility: true,
                   trackVisibility: false,
                   child: ListView.builder(
@@ -158,7 +158,7 @@ class _MoviesState extends State<Movies> {
                 width: 100,
                 margin: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(34, 35, 53, 1),
+                  color: const Color.fromRGBO(34, 35, 53, 1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Align(
@@ -208,7 +208,7 @@ class _MoviesState extends State<Movies> {
                 // );
                 return Container(
                   height: 210,
-                  child: Align(
+                  child: const Align(
                     alignment: Alignment.center,
                     child: CircularProgressIndicator(
                       color: Color.fromARGB(255, 248, 30, 67),
@@ -224,7 +224,7 @@ class _MoviesState extends State<Movies> {
 
                 return RawScrollbar(
                   controller: _scrollController2,
-                  thumbColor: Color.fromRGBO(253,1,120, 1),
+                  thumbColor: const Color.fromRGBO(253,1,120, 1),
                   thumbVisibility: true,
                   trackVisibility: false,
                   child: ListView.builder(
@@ -250,7 +250,7 @@ class _MoviesState extends State<Movies> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               //width: width * 6 / 8,
                               //height: (height * 3 / 8 - 35) * 6 / 8,
                               height: 155,

@@ -15,7 +15,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     // Access film details from the widget parameter
     String title = widget.film.title ?? "";
@@ -234,8 +233,6 @@ class CastCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Container(
       //color: Colors.cyan,
       margin: const EdgeInsets.symmetric(horizontal: 10),
