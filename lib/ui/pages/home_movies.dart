@@ -42,11 +42,11 @@ class _MoviesState extends State<Movies> {
       children: [
         Container(
           width: width,
-          margin: const EdgeInsets.only(top: 15, bottom: 10, left: 10),
+          margin: const EdgeInsets.only(top: 5, bottom: 10, left: 10),
           alignment: Alignment.topLeft,
           child: const Headtitle(
             text: "Now Playing",
-            size: 16.0,
+            size: 18.0,
           ),
         ),
         FutureBuilder(
@@ -94,7 +94,7 @@ class _MoviesState extends State<Movies> {
                 color: Colors.transparent,
                 child: RawScrollbar(
                   controller: _scrollController,
-                  thumbColor: Color.fromARGB(255, 248, 30, 67),
+                  thumbColor: Color.fromRGBO(253,1,120, 1),
                   thumbVisibility: true,
                   trackVisibility: false,
                   child: ListView.builder(
@@ -142,7 +142,7 @@ class _MoviesState extends State<Movies> {
           alignment: Alignment.topLeft,
           child: const Headtitle(
             text: "Movie Category",
-            size: 16.0,
+            size: 18.0,
           ),
         ),
         Container(
@@ -158,7 +158,7 @@ class _MoviesState extends State<Movies> {
                 width: 100,
                 margin: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 248, 30, 67),
+                  color: Color.fromRGBO(34, 35, 53, 1),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Align(
@@ -182,11 +182,11 @@ class _MoviesState extends State<Movies> {
 
         Container(
           width: width,
-          margin: const EdgeInsets.only(top: 25, bottom: 10, left: 10),
+          margin: const EdgeInsets.only(top: 25, left: 10, bottom: 10),
           alignment: Alignment.topLeft,
           child: const Headtitle(
             text: "Coming Soon",
-            size: 16.0,
+            size: 18.0,
           ),
         ),
         Container(
@@ -199,11 +199,20 @@ class _MoviesState extends State<Movies> {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 // While data is being fetched, show a loading indicator
-                return Padding(
-                  padding:
-                      EdgeInsets.fromLTRB(width / 2.2, 100, width / 2.2, 100),
-                  child: const CircularProgressIndicator(
-                    color: Color.fromARGB(255, 248, 30, 67),
+                // return Padding(
+                //   padding:
+                //       EdgeInsets.fromLTRB(width / 2.2, 100, width / 2.2, 100),
+                //   child: const CircularProgressIndicator(
+                //     color: Color.fromARGB(255, 248, 30, 67),
+                //   ),
+                // );
+                return Container(
+                  height: 210,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator(
+                      color: Color.fromARGB(255, 248, 30, 67),
+                    ),
                   ),
                 );
               } else if (snapshot.hasError) {
@@ -215,7 +224,7 @@ class _MoviesState extends State<Movies> {
 
                 return RawScrollbar(
                   controller: _scrollController2,
-                  thumbColor: const Color.fromARGB(255, 248, 30, 67),
+                  thumbColor: Color.fromRGBO(253,1,120, 1),
                   thumbVisibility: true,
                   trackVisibility: false,
                   child: ListView.builder(
@@ -225,7 +234,8 @@ class _MoviesState extends State<Movies> {
                     itemBuilder: (BuildContext context, int index) {
                       Film film = films[index];
                       return Container(
-                        margin: const EdgeInsets.fromLTRB(5, 10, 5, 25),
+                        margin: const EdgeInsets.only(left: 10, bottom: 15),
+                        //margin: const EdgeInsets.fromLTRB(10, 10, 10, 25),
                         //width: width * 6 / 8,
                         width: 280,
                         //height: height * 3 / 8 - 35,
@@ -243,7 +253,7 @@ class _MoviesState extends State<Movies> {
                             SizedBox(
                               //width: width * 6 / 8,
                               //height: (height * 3 / 8 - 35) * 6 / 8,
-                              height: 135,
+                              height: 155,
                             ),
                             Container(
                               alignment: Alignment.bottomLeft,
