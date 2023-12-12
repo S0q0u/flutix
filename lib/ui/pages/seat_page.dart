@@ -42,8 +42,8 @@ class _SeatState extends State<Seat> {
       _reservations[index]
           ? null
           : (_selections[index]
-              ? _selections[index] = false
-              : _selections[index] = true);
+          ? _selections[index] = false
+          : _selections[index] = true);
     });
   }
 
@@ -67,230 +67,316 @@ class _SeatState extends State<Seat> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   automaticallyImplyLeading: false,
+      //   title: Text(
+      //     ticket.film.title!,
+      //     textAlign: TextAlign.left,
+      //     style: const TextStyle(
+      //         color: Color.fromARGB(255, 248, 30, 67),
+      //         fontFamily: "Raleway",
+      //         fontSize: 12,
+      //         fontStyle: FontStyle.normal,
+      //         fontWeight: FontWeight.w600),
+      //   ),
+      //   toolbarHeight: 100,
+      // ),
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: const SeatAppbar(),
-        toolbarHeight: 100,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          ticket.film.title!,
+          style: const TextStyle(
+            fontFamily: 'Raleway',
+            color: Colors.black,
+            //fontSize: 15,
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                width: width,
-                height: 45,
-                margin: const EdgeInsets.all(5),
-                padding: const EdgeInsets.only(top: 10, bottom: 10),
-                child: Container(
-                  width: width * 3 / 5,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: const Color.fromARGB(255, 248, 30, 67),
-                  ),
-                  child: const Icon(Icons.laptop_sharp, color: Colors.white,),
-                ),
-              ),
-              Container(
-                width: width,
-                height: height * 7 / 10 + 45,
-                margin: const EdgeInsets.all(5),
+          Expanded(
+              child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
+                    Container(
+                      alignment: Alignment.center,
                       width: width,
                       height: 45,
-                      child: const Headtitle(
-                        text: "Pick your Seat !",
-                        size: 18.0,
+                      margin: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Container(
+                        width: width * 3 / 5,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: const Color.fromARGB(255, 248, 30, 67),
+                        ),
+                        child: const Icon(Icons.laptop_sharp, color: Colors.white,),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: width / 2 - 20,
-                          height: height * 7 / 10,
-                          child: Scrollbar(
-                            controller: _scrollController,
-                            child: GridView.builder(
-                              controller: _scrollController,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 1.5,
-                                mainAxisSpacing: 5,
-                                crossAxisSpacing: 5,
-                                crossAxisCount: 3,
-                              ),
-                              itemCount: 27,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                          top: 2, left: 2),
-                                      color: const Color.fromARGB(
-                                          255, 248, 30, 67),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.zero,
-                                      decoration: BoxDecoration(
-                                          color: _reservations[index]
-                                              ? const Color(0xFF969696)
-                                              : Colors.white,
-                                          border: Border.all(
-                                              color: const Color(0xFF969696),
-                                              width: 1)),
-                                      child: ToggleButtons(
-                                        fillColor: const Color.fromARGB(255, 238, 51, 82),
-                                        selectedColor: Colors.black,
-                                        isSelected: [_selections[index]],
-                                        children: [
-                                          Text(_seat[0][index],
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                  fontSize: 10,
-                                                  fontFamily: "Roboto",
-                                                  fontStyle: FontStyle.normal,
-                                                  fontWeight: FontWeight.w400))
-                                        ],
-                                        onPressed: (pressIndex) {
-                                          seatToggle(index);
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
+                    Container(
+                      width: width,
+                      height: height * 7 / 10 + 45,
+                      margin: const EdgeInsets.all(5),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: width,
+                            height: 45,
+                            child: const Headtitle(
+                              text: "Pick your Seat !",
+                              size: 18.0,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: width / 2 - 20,
-                          height: height * 7 / 10,
-                          child: Scrollbar(
-                            controller: _scrollController2,
-                            child: GridView.builder(
-                              controller: _scrollController2,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 1.5,
-                                mainAxisSpacing: 5,
-                                crossAxisSpacing: 5,
-                                crossAxisCount: 3,
-                              ),
-                              itemCount: 27,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                          top: 2, left: 2),
-                                      color: const Color.fromARGB(
-                                          255, 248, 30, 67),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: width / 2 - 20,
+                                height: height * 7 / 10,
+                                child: Scrollbar(
+                                  controller: _scrollController,
+                                  child: GridView.builder(
+                                    controller: _scrollController,
+                                    gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                      childAspectRatio: 1.5,
+                                      mainAxisSpacing: 5,
+                                      crossAxisSpacing: 5,
+                                      crossAxisCount: 3,
                                     ),
-                                    Container(
-                                      padding: EdgeInsets.zero,
-                                      decoration: BoxDecoration(
-                                          color: _reservations[index + 27]
-                                              ? const Color(0xFF969696)
-                                              : Colors.white,
-                                          border: Border.all(
-                                              color: const Color(0xFF969696),
-                                              width: 1)),
-                                      child: ToggleButtons(
-                                        fillColor: const Color.fromARGB(255, 238, 51, 82),
-                                        selectedColor: Colors.black,
-                                        isSelected: [_selections[index + 27]],
+                                    itemCount: 27,
+                                    itemBuilder: (BuildContext context, int index) {
+                                      return Stack(
+                                        alignment: Alignment.center,
                                         children: [
-                                          Text(_seat[1][index],
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                  fontSize: 10,
-                                                  fontFamily: "Roboto",
-                                                  fontStyle: FontStyle.normal,
-                                                  fontWeight: FontWeight.w400))
+                                          Container(
+                                            margin: const EdgeInsets.only(
+                                                top: 2, left: 2),
+                                            color: const Color.fromARGB(
+                                                255, 248, 30, 67),
+                                          ),
+                                          Container(
+                                            padding: EdgeInsets.zero,
+                                            decoration: BoxDecoration(
+                                                color: _reservations[index]
+                                                    ? const Color(0xFF969696)
+                                                    : Colors.white,
+                                                border: Border.all(
+                                                    color: const Color(0xFF969696),
+                                                    width: 1)),
+                                            child: ToggleButtons(
+                                              fillColor: const Color.fromARGB(255, 238, 51, 82),
+                                              selectedColor: Colors.black,
+                                              isSelected: [_selections[index]],
+                                              children: [
+                                                Text(_seat[0][index],
+                                                    textAlign: TextAlign.center,
+                                                    style: const TextStyle(
+                                                        fontSize: 10,
+                                                        fontFamily: "Roboto",
+                                                        fontStyle: FontStyle.normal,
+                                                        fontWeight: FontWeight.w400))
+                                              ],
+                                              onPressed: (pressIndex) {
+                                                seatToggle(index);
+                                              },
+                                            ),
+                                          ),
                                         ],
-                                        onPressed: (pressIndex) {
-                                          seatToggle(index + 27);
-                                        },
-                                      ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: width / 2 - 20,
+                                height: height * 7 / 10,
+                                child: Scrollbar(
+                                  controller: _scrollController2,
+                                  child: GridView.builder(
+                                    controller: _scrollController2,
+                                    gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                      childAspectRatio: 1.5,
+                                      mainAxisSpacing: 5,
+                                      crossAxisSpacing: 5,
+                                      crossAxisCount: 3,
                                     ),
-                                  ],
-                                );
-                              },
-                            ),
+                                    itemCount: 27,
+                                    itemBuilder: (BuildContext context, int index) {
+                                      return Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Container(
+                                            margin: const EdgeInsets.only(
+                                                top: 2, left: 2),
+                                            color: const Color.fromARGB(
+                                                255, 248, 30, 67),
+                                          ),
+                                          Container(
+                                            padding: EdgeInsets.zero,
+                                            decoration: BoxDecoration(
+                                                color: _reservations[index + 27]
+                                                    ? const Color(0xFF969696)
+                                                    : Colors.white,
+                                                border: Border.all(
+                                                    color: const Color(0xFF969696),
+                                                    width: 1)),
+                                            child: ToggleButtons(
+                                              fillColor: const Color.fromARGB(255, 238, 51, 82),
+                                              selectedColor: Colors.black,
+                                              isSelected: [_selections[index + 27]],
+                                              children: [
+                                                Text(_seat[1][index],
+                                                    textAlign: TextAlign.center,
+                                                    style: const TextStyle(
+                                                        fontSize: 10,
+                                                        fontFamily: "Roboto",
+                                                        fontStyle: FontStyle.normal,
+                                                        fontWeight: FontWeight.w400))
+                                              ],
+                                              onPressed: (pressIndex) {
+                                                seatToggle(index + 27);
+                                              },
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
-                        )
-                      ],
+                        ],
+                      ),
                     ),
+                    // Column(
+                    //   children: [
+                    //     const Row(
+                    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //       children: [
+                    //         SeatInfo(
+                    //           color: Colors.white,
+                    //           text: "Available",
+                    //         ),
+                    //         SeatInfo(
+                    //           color: Color(0xFF969696),
+                    //           text: "Unavailabe",
+                    //         ),
+                    //         SeatInfo(
+                    //           color: const Color.fromARGB(255, 238, 51, 82),
+                    //           text: "Selected",
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ],
+                    // )
                   ],
                 ),
-              ),
-              Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SeatInfo(
-                        color: Colors.white,
-                        text: "Available",
-                      ),
-                      SeatInfo(
-                        color: Color(0xFF969696),
-                        text: "Unavailabe",
-                      ),
-                      SeatInfo(
-                        color: const Color.fromARGB(255, 238, 51, 82),
-                        text: "Selected",
-                      ),
-                    ],
-                  ),
-                  RowButtons(
-                      width: width,
-                      height: height,
-                      onPressedBack: () => Navigator.pop(context),
-                      onPressedContinue: () {
-                        List<String> selectedSeats = getSelectedSeats();
-
-                        if (selectedSeats.isNotEmpty) {
-                          ticket.seats = selectedSeats;
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const CheckoutPage();
-                            },
-                          ));
-                        } else {
-                          setState(() => checkSelected = true);
-                        }
-                      }),
-                ],
               )
-            ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Visibility(
-              visible: checkSelected,
-              child: const Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Please Select First!',
-                  style: TextStyle(
-                    fontFamily: 'Raleway',
-                    fontSize: 15,
-                    color: const Color.fromARGB(255, 238, 51, 82),
-                  ),
+
+          Container(
+            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+            //margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SeatInfo(
+                  color: Colors.white,
+                  text: "Available",
                 ),
-              ),
+                SeatInfo(
+                  color: Color(0xFF969696),
+                  text: "Unavailabe",
+                ),
+                SeatInfo(
+                  color: const Color.fromARGB(255, 238, 51, 82),
+                  text: "Selected",
+                ),
+              ],
             ),
           ),
+
+          SizedBox(height: 50),
+
+          Container(
+            //color: Colors.orange,
+            margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    child: Text(
+                      'Confirm Your Book',
+                      style: TextStyle(
+                          fontFamily: 'Raleway',
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
+                      ),
+                    )
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(34, 35, 53, 1),
+                  ),
+                  width: 60,
+                  height: 60,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 50,
+                    ),
+                    onPressed: () {
+                      List<String> selectedSeats = getSelectedSeats();
+
+                      if (selectedSeats.isNotEmpty) {
+                        ticket.seats = selectedSeats;
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const CheckoutPage();
+                          },
+                        ));
+                      } else {
+                        setState(() => checkSelected = true);
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
+          )
+
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Visibility(
+          //     visible: checkSelected,
+          //     child: const Align(
+          //       alignment: Alignment.center,
+          //       child: Text(
+          //         'Please Select First!',
+          //         style: TextStyle(
+          //           fontFamily: 'Raleway',
+          //           fontSize: 15,
+          //           color: const Color.fromARGB(255, 238, 51, 82),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
@@ -374,7 +460,7 @@ class SeatAppbar extends StatelessWidget {
                   ticket.film.genres!.join(", "),
                   textAlign: TextAlign.left,
                   style: const TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontFamily: "Raleway",
                       fontSize: 12,
                       fontStyle: FontStyle.normal,
@@ -385,7 +471,7 @@ class SeatAppbar extends StatelessWidget {
                 "${ticket.cinema} - ${ticket.time}",
                 textAlign: TextAlign.left,
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontFamily: "Raleway",
                     fontSize: 12,
                     fontStyle: FontStyle.normal,

@@ -60,7 +60,6 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
 
     return Scaffold(
       appBar: AppBar(
-        //backgroundColor: selectedTheme.primaryColor,
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
@@ -469,51 +468,50 @@ class _PlaceAndTimePickState extends State<PlaceAndTimePick> {
                   ),
                   width: 60,
                   height: 60,
-                  child:
-                    IconButton(
-                      icon: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                      onPressed: () {
-                        late String cinema;
-                        late String time;
-                        List<bool> check = [false, false, false];
-                        for (int i = 0; i < _selectionsCinema.length; i++) {
-                          if (_selectionsCinema[i] == true) {
-                            cinema = _location[i];
-                            check[0] = true;
-                            break;
-                          }
-                        }
-                        for (int i = 0; i < _selectionsDay.length; i++) {
-                          if (_selectionsDay[i] == true) {
-                            time = _day[i];
-                            check[1] = true;
-                            break;
-                          }
-                        }
-                        for (int i = 0; i < _selectionsTime.length; i++) {
-                          if (_selectionsTime[i] == true) {
-                            time += ", ${_time[i]}";
-                            check[2] = true;
-                            break;
-                          }
-                        }
-                        if (!check.contains(false)) {
-                          ticket.cinema = cinema;
-                          ticket.time = time;
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) {
-                              return const Seat();
-                            },
-                          ));
-                        } else {
-                          setState(() => checkSelected = true);
-                        }
-                      },
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 50,
                     ),
+                    onPressed: () {
+                      late String cinema;
+                      late String time;
+                      List<bool> check = [false, false, false];
+                      for (int i = 0; i < _selectionsCinema.length; i++) {
+                        if (_selectionsCinema[i] == true) {
+                          cinema = _location[i];
+                          check[0] = true;
+                          break;
+                        }
+                      }
+                      for (int i = 0; i < _selectionsDay.length; i++) {
+                        if (_selectionsDay[i] == true) {
+                          time = _day[i];
+                          check[1] = true;
+                          break;
+                        }
+                      }
+                      for (int i = 0; i < _selectionsTime.length; i++) {
+                        if (_selectionsTime[i] == true) {
+                          time += ", ${_time[i]}";
+                          check[2] = true;
+                          break;
+                        }
+                      }
+                      if (!check.contains(false)) {
+                        ticket.cinema = cinema;
+                        ticket.time = time;
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) {
+                            return const Seat();
+                          },
+                        ));
+                      } else {
+                        setState(() => checkSelected = true);
+                      }
+                    },
+                  ),
                 ),
               ],
             ),
