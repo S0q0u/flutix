@@ -120,7 +120,7 @@ class _MoviesState extends State<Movies> {
                           //height: height * 2 / 8 - 45,
                           width: 100,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
+                            borderRadius: const BorderRadius.all(Radius.circular(10)),
                             image: DecorationImage(
                               image: NetworkImage(film.thumbnailUrl!),
                               fit: BoxFit.cover,
@@ -159,7 +159,7 @@ class _MoviesState extends State<Movies> {
                 margin: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(34, 35, 53, 1),
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Align(
                   alignment: Alignment.center,
@@ -241,7 +241,7 @@ class _MoviesState extends State<Movies> {
                         //height: height * 3 / 8 - 35,
                         decoration: BoxDecoration(
                           borderRadius:
-                              const BorderRadius.all(Radius.circular(15)),
+                              const BorderRadius.all(Radius.circular(10)),
                           image: DecorationImage(
                             image: NetworkImage(film.backdropUrl ?? ''),
                             fit: BoxFit.cover,
@@ -264,8 +264,8 @@ class _MoviesState extends State<Movies> {
                               //padding: EdgeInsets.all(((height * 2 / 8) * 2 / 8) / 4),
                               decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15),
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
                                 ),
                                 color: Colors.white60,
                               ),
