@@ -23,166 +23,179 @@ class _MyWalletPageState extends State<MyWalletPage> {
     List<int> amounts = List.generate(10, (index) => 50000 * (index + 1));
     UserData userDataListen = Provider.of<UserData>(context);
     UserData userData = Provider.of<UserData>(context, listen: false);
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        //backgroundColor: selectedTheme.primaryColor,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          'My Wallet',
+          style: const TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Tombol Back
-          Container(
-            color: const Color(0xFF393E46),
-            padding: const EdgeInsets.all(10),
-            alignment: Alignment.topLeft,
-            child: Container(
-              margin: const EdgeInsets.only(top: 25, left: 10),
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(120, 255, 221, 0),
-              ),
-              width: 40,
-              height: 40,
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Color(0xFF393E46),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ),
-          ),
-
-          // Judul halaman
-          Container(
-            margin: const EdgeInsets.only(top: 20),
-            child: const Text(
-              'In-Balance',
-              style: TextStyle(
-                color: const Color.fromARGB(255, 248, 30, 67),
-                fontFamily: 'Raleway',
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-
-          // Kontainer "user wallet"
-          Container(
-            margin: const EdgeInsets.only(top: 20, bottom: 20),
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 40),
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(color: const Color.fromARGB(255, 248, 30, 67), width: 2),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      ClipOval(
-                        child: Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.pink,
-                              width: 2,
-                            ),
-                          ),
-                          child: ClipOval(
-                            child: Image(
-                              // Image.network(userDataListen.data.profile!),
-                              image: userData.data!.profile != ""
-                                  ? NetworkImage(userDataListen.data!.profile!)
-                                  : const AssetImage('assets/Profile.png')
-                                      as ImageProvider<Object>,
-                            ),
-                            // child: Image.network(userData.data.profile!),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'My Wallet',
-                            style: TextStyle(
-                              color:  Color.fromARGB(255, 248, 30, 67),
-                              fontFamily: 'Raleway',
-                              fontSize: 13,
-                            ),
-                          ),
-                          Text(
-                            "Rp. ${NumberFormat("#,##0", "id_ID").format(userDataListen.data!.wallet)}",
-                            style: const TextStyle(
-                              color:  Color.fromARGB(255, 248, 30, 67),
-                              fontFamily: 'Roboto',
-                              fontSize: 11,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Container untuk daftar top-up
-          // SizedBox(
-          //   height: 370,
-          //   child: RawScrollbar(
-          //     controller: _scrollController,
-          //     thumbColor: const Color.fromARGB(255, 248, 30, 67),
-          //     thumbVisibility: true,
-          //     trackVisibility: false,
-          //     child: ListView.builder(
-          //       controller: _scrollController,
-          //       scrollDirection: Axis.vertical,
-          //       itemCount: 10,
-          //       itemBuilder: (context, index) {
-          //         final formattedAmount = NumberFormat("#,##0", "id_ID")
-          //             .format(50000 * (index + 1));
-          //         return GestureDetector(
-          //           onTap: () {
-          //             setState(() {
-          //               selectedTopUpIndex = index;
-          //             });
-          //           },
-          //           child: Container(
-          //             color: selectedTopUpIndex == index
-          //                 ? const Color.fromARGB(255, 238, 51, 82) // Warna terpilih
-          //                 : Colors.white,
-          //             margin:
-          //                 const EdgeInsets.only(top: 10, left: 20, right: 20),
-          //             padding: const EdgeInsets.all(10),
-          //             child: Row(
-          //               children: [
-          //                 Image.asset('assets/topUp.png',
-          //                     width: 50, height: 30),
-          //                 const SizedBox(width: 10),
-          //                 Text(
-          //                   'Rp. $formattedAmount',
-          //                   style: const TextStyle(
-          //                     color: Colors.black,
-          //                     fontFamily: 'Roboto',
-          //                     fontSize: 14,
-          //                   ),
-          //                 ),
-          //               ],
-          //             ),
-          //           ),
-          //         );
+          // Container(
+          //   color: const Color(0xFF393E46),
+          //   padding: const EdgeInsets.all(10),
+          //   alignment: Alignment.topLeft,
+          //   child: Container(
+          //     margin: const EdgeInsets.only(top: 25, left: 10),
+          //     decoration: const BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       color: Color.fromARGB(120, 255, 221, 0),
+          //     ),
+          //     width: 40,
+          //     height: 40,
+          //     child: IconButton(
+          //       icon: const Icon(
+          //         Icons.arrow_back,
+          //         color: Color(0xFF393E46),
+          //       ),
+          //       onPressed: () {
+          //         Navigator.of(context).pop();
           //       },
           //     ),
           //   ),
           // ),
+          //
+          // // Judul halaman
+          // Container(
+          //   margin: const EdgeInsets.only(top: 20),
+          //   child: const Text(
+          //     'In-Balance',
+          //     style: TextStyle(
+          //       color: const Color.fromARGB(255, 248, 30, 67),
+          //       fontFamily: 'Raleway',
+          //       fontSize: 18,
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //     textAlign: TextAlign.center,
+          //   ),
+          // ),
+
+          // Kontainer "user wallet"
+          Container(
+            // margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            margin: const EdgeInsets.only(top: 20, bottom: 10, left: 20, right: 20),
+            padding: const EdgeInsets.all(10),
+            height: 160,
+            color: Color.fromRGBO(34, 35, 53, 1),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "Rp. ${NumberFormat("#,##0", "id_ID").format(userDataListen.data!.wallet)}",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "Available Balance",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Raleway',
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // Container(
+          //   margin: const EdgeInsets.only(top: 20, bottom: 20),
+          //   child: Container(
+          //     margin: const EdgeInsets.symmetric(horizontal: 40),
+          //     padding: const EdgeInsets.all(6),
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(50),
+          //       border: Border.all(color: const Color.fromARGB(255, 248, 30, 67), width: 2),
+          //     ),
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //       children: [
+          //         Row(
+          //           children: [
+          //             ClipOval(
+          //               child: Container(
+          //                 width: 35,
+          //                 height: 35,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(
+          //                     color: Colors.pink,
+          //                     width: 2,
+          //                   ),
+          //                 ),
+          //                 child: ClipOval(
+          //                   child: Image(
+          //                     // Image.network(userDataListen.data.profile!),
+          //                     image: userData.data!.profile != ""
+          //                         ? NetworkImage(userDataListen.data!.profile!)
+          //                         : const AssetImage('assets/Profile.png')
+          //                             as ImageProvider<Object>,
+          //                   ),
+          //                   // child: Image.network(userData.data.profile!),
+          //                 ),
+          //               ),
+          //             ),
+          //             const SizedBox(width: 16),
+          //             Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 const Text(
+          //                   'My Wallet',
+          //                   style: TextStyle(
+          //                     color:  Color.fromARGB(255, 248, 30, 67),
+          //                     fontFamily: 'Raleway',
+          //                     fontSize: 13,
+          //                   ),
+          //                 ),
+          //                 Text(
+          //                   "Rp. ${NumberFormat("#,##0", "id_ID").format(userDataListen.data!.wallet)}",
+          //                   style: const TextStyle(
+          //                     color:  Color.fromARGB(255, 248, 30, 67),
+          //                     fontFamily: 'Roboto',
+          //                     fontSize: 11,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ],
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+
+          // Container untuk daftar top-up
+          Container(
+            width: width,
+            margin: const EdgeInsets.only(left: 20, bottom: 10, top: 10),
+            alignment: Alignment.topLeft,
+            child: Text(
+              'Top Up',
+              style: const TextStyle(
+                color: Colors.black,
+                fontFamily: 'Raleway',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
@@ -206,13 +219,21 @@ class _MyWalletPageState extends State<MyWalletPage> {
                     padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
-                        Image.asset('assets/topUp.png',
-                            width: 50, height: 30),
+                        Icon(
+                          Icons.monetization_on,
+                          color: selectedTopUpIndex == index
+                              ? Colors.white
+                              : Colors.black,
+                          size: 30,
+                        ),
                         const SizedBox(width: 10),
                         Text(
+                          //'Rp. ${formattedAmount ?? 0}', // Provide a default value (0 in this case)
                           'Rp. $formattedAmount',
-                          style: const TextStyle(
-                            color: Colors.black,
+                          style: TextStyle(
+                            color: selectedTopUpIndex == index
+                                ? Colors.white // Text color when selected
+                                : Colors.black,
                             fontFamily: 'Roboto',
                             fontSize: 14,
                           ),
@@ -227,7 +248,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
 
           // Tombol "Confirm Top-Up"
           Container(
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.all(20),
             child: ElevatedButton(
               onPressed: () async {
                 await userData.updateField("wallet",
@@ -261,7 +282,8 @@ class _MyWalletPageState extends State<MyWalletPage> {
                 child: const Text(
                   'Confirm Top-Up',
                   style: TextStyle(
-                    color: Color(0xFF393E46),
+                    // color: Color(0xFF393E46),
+                    color: Colors.white,
                     fontFamily: 'Raleway',
                     fontSize: 13,
                     fontWeight: FontWeight.bold,

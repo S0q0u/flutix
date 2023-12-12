@@ -68,7 +68,8 @@ class HomeAppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UserData userData = Provider.of<UserData>(context, listen: false);
+    UserData userDataListen = Provider.of<UserData>(context);
+    UserData userData = Provider.of<UserData>(context, listen: true);
     return Row(
       children: [
         Container(
@@ -109,6 +110,7 @@ class HomeAppBarTitle extends StatelessWidget {
                     ),
                     Text(
                       "Rp. ${NumberFormat("#,##0", "id_ID").format(userData.data!.wallet)}",
+                      //"Rp. ${NumberFormat("#,##0", "id_ID").format(userDataListen.data!.wallet)}",
                       style: const TextStyle(
                         color: Color(0xFF1E1E1E),
                         fontFamily: "Roboto",
