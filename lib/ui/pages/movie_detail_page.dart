@@ -45,7 +45,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   margin: const EdgeInsets.only(top: 25, left: 10),
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 223, 128, 144),
+                    color: Color.fromRGBO(253,1,120, 0.5),
                   ),
                   width: 40,
                   height: 40,
@@ -185,39 +185,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             },
           ),
 
-          // Container(
-          //   margin: const EdgeInsets.only(left: 5, right: 5),
-          //   padding: const EdgeInsets.all(8.0),
-          //   width: width * 0.95,
-          //   child: ElevatedButton(
-          //     style: ElevatedButton.styleFrom(
-          //       // foregroundColor: const Color(0xFFDAA520),
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(10)),
-          //       backgroundColor: const Color.fromARGB(255, 248, 30, 67),
-          //       padding:
-          //           const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
-          //     ),
-          //     onPressed: () {
-          //       Provider.of<TicketData>(context, listen: false).ticket!.film =
-          //           widget.film;
-          //       Navigator.of(context).push(MaterialPageRoute(
-          //         builder: (context) {
-          //           return PlaceAndTimePick();
-          //         },
-          //       ));
-          //     },
-          //     child: const Text(
-          //       "Book",
-          //       style: TextStyle(
-          //           fontFamily: 'Raleway',
-          //           color: Colors.white,
-          //           fontSize: 18,
-          //           fontWeight: FontWeight.bold),
-          //     ),
-          //   ),
-          // ),
-
           Container(
             margin: const EdgeInsets.only(left: 5, right: 5),
             padding: const EdgeInsets.all(8.0),
@@ -230,7 +197,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  backgroundColor: const Color.fromARGB(255, 248, 30, 67),
+                  backgroundColor: const Color.fromRGBO(253,1,120, 1),
                   padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
                 ),
                 onPressed: () {
