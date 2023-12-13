@@ -9,7 +9,7 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool uploadPressed = false;
-  bool backPressed = false;
+  //bool backPressed = false;
 
   String imagePath = '';
 
@@ -30,22 +30,28 @@ class _EditProfilePageState extends State<EditProfilePage> {
     UserData userData = Provider.of<UserData>(context, listen: false);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF393E46),
+      appBar: AppBar(
+        //backgroundColor: selectedTheme.primaryColor,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        centerTitle: true,
+        title: const Text(
+          'Edit Profile',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+      ),
+      //backgroundColor: const Color(0xFF393E46),
       body: Center(
         child: ListView(
           children: [
             Column(
               children: [
-                const SizedBox(height: 60),
-                const Text(
-                  "Edit Profile",
-                  style: TextStyle(
-                    fontFamily: 'Raleway',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 248, 30, 67),
-                  ),
-                ),
+
                 const SizedBox(height: 70),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -74,7 +80,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         ), // Mengubah warna border saat dalam fokus
                       ),
                     ),
-                    style: const TextStyle(color: Color(0xFFFFFFFF)),
+                    style: const TextStyle(color: Colors.black),
                     onChanged: (String value) {},
                   ),
                 ),
@@ -120,7 +126,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         },
                       ),
                     ),
-                    style: const TextStyle(color: Color(0xFFFFFFFF)),
+                    style: const TextStyle(color: Colors.black),
                     onChanged: (String value) {},
                   ),
                 ),
@@ -171,23 +177,41 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           style: TextStyle(
                             fontFamily: 'Raleway',
                             fontSize: 13,
-                            color: Color(0xFFFFFFFF),
+                            color: Colors.black,
                           ),
                         ),
                         ElevatedButton(
                           onPressed: () async {
-                            XFile? file = await Provider.of<UserData>(context,
-                                    listen: false)
-                                .getImage();
-                            imagePath = await Auth().uploadImage(file);
-                            setState(() {
-                              uploadPressed = !uploadPressed;
-                            });
+                            // Mengambil gambar dari galeri
+                            final ImagePicker _picker = ImagePicker();
+                            XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+                            if (image != null) {
+                              // Mendapatkan path gambar dari XFile
+                              // String imagePath = image.path;
+                              setState(() {
+                                imagePath = image.path;
+                              });
+
+                              // Meng-upload gambar dan mendapatkan URL gambar yang diunggah
+                              String imageUrl = await Auth().uploadImage(image);
+
+                              // Mengupdate field 'profile' di Firestore dengan URL gambar baru
+                              await Provider.of<UserData>(context, listen: false)
+                                  .updateField("profile", imageUrl);
+
+                              // Setelah sukses, perbarui state lokal jika diperlukan
+                              setState(() {
+                                // Jika ingin mengganti gambar lokal di aplikasi, gunakan line berikut
+                                // imagePath = imageUrl;
+                                uploadPressed = !uploadPressed;
+                              });
+                            }
                           },
                           style: OutlinedButton.styleFrom(
                             backgroundColor: uploadPressed
                                 ? const Color.fromARGB(255, 238, 51, 82)
-                                : const Color(0xFF393E46),
+                                : Color.fromRGBO(253,1,120, 1),
                             foregroundColor:
                                 const Color.fromARGB(255, 238, 51, 82),
                             side: BorderSide(
@@ -207,8 +231,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             style: TextStyle(
                                 fontFamily: 'Raleway',
                                 color: uploadPressed
-                                    ? const Color(0xFF000000)
-                                    : const Color.fromARGB(255, 248, 30, 67),
+                                    ? Colors.white
+                                    : Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -221,78 +245,52 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 238, 51, 82),
-                    backgroundColor: const Color.fromARGB(255, 248, 30, 67),
+                    backgroundColor: const Color.fromRGBO(253,1,120, 1),
                     padding: const EdgeInsets.symmetric(horizontal: 138.0),
                   ),
+                  // onPressed: () async {
+                  //   if (_passwordController.text.isEmpty) {
+                  //     await userData.updateFieldName("nama", _nameController.text);
+                  //     if (imagePath != "") {
+                  //       await userData.updateField("profile", imagePath);
+                  //     }
+                  //     if (!context.mounted) return;
+                  //     Navigator.of(context).pop();
+                  //   } else {
+                  //     await userData.updateField("nama", _nameController.text);
+                  //     if (imagePath != "") {
+                  //       await userData.updateField("profile", imagePath);
+                  //     }
+                  //     await userData.changePassword(_passwordController.text);
+                  //     if (!context.mounted) return;
+                  //     Navigator.of(context).pop();
+                  //   }
+                  // },
                   onPressed: () async {
-                    if (_passwordController.text.isEmpty) {
-                      await userData.updateFieldName("nama", _nameController.text);
-                      if (imagePath != "") {
-                        await userData.updateField("profile", imagePath);
-                      }
-                      if (!context.mounted) return;
-                      Navigator.of(context).pop();
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (context) {
-                      //     return const ProfilePage();
-                      //   },
-                      // ));
-                    } else {
-                      await userData.updateField("nama", _nameController.text);
-                      if (imagePath != "") {
-                        await userData.updateField("profile", imagePath);
-                      }
-                      await userData.changePassword(_passwordController.text);
-                      if (!context.mounted) return;
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (context) {
-                      //     return const ProfilePage();
-                      //   },
-                      // ));
-                      Navigator.of(context).pop();
+                    await userData.updateFieldName("nama", _nameController.text);
+
+                    if (imagePath != "") {
+                      await userData.updateField("profile", imagePath);
                     }
+
+                    if (_passwordController.text.isNotEmpty) {
+                      await userData.changePassword(_passwordController.text);
+                    }
+
+                    if (!context.mounted) return;
+                    Navigator.of(context).pop();
                   },
+
                   child: const Text(
                     "Update",
                     style: TextStyle(
                         fontFamily: 'Raleway',
-                        color: Color(0xFF000000),
+                        color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
                 const SizedBox(height: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      backPressed = !backPressed;
-                    });
-                    Navigator.of(context).pop();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: backPressed
-                        ? const Color.fromARGB(255, 238, 51, 82)
-                        : const Color(0xFF393E46),
-                    foregroundColor: const Color.fromARGB(255, 238, 51, 82),
-                    side: BorderSide(
-                      width: 1,
-                      color: backPressed
-                          ? const Color.fromARGB(255, 238, 51, 82)
-                          : const Color.fromARGB(255, 248, 30, 67),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 149.0),
-                  ),
-                  child: Text(
-                    "Back",
-                    style: TextStyle(
-                        fontFamily: 'Raleway',
-                        color: backPressed
-                            ? const Color(0xFF000000)
-                            : const Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
               ],
             ),
           ],
