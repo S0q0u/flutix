@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:piranti_bergerak/firebase_options.dart';
 import 'package:piranti_bergerak/providers/providers.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:piranti_bergerak/ui/pages/pages.dart';
 import 'package:piranti_bergerak/ui/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
         home: const LaunchApp(),
-        //home: const SuccessPage(),
       ),
     );
   }

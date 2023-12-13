@@ -16,7 +16,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     Ticket ticket = ticketData.ticket!;
     Color payColor = userData.data!.wallet! < price
         ? Colors.red
-        : Color.fromARGB(255, 248, 30, 67);
+        : Color(0xFFFD0178);
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -45,10 +45,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       child: Container(
                         width: 40,
                         height: 40,
-                        decoration: const ShapeDecoration(
-                          color: Color.fromARGB(255, 223, 128, 144),
-                          shape: CircleBorder(),
-                        ),
                         child: IconButton(
                           icon: const Icon(
                             Icons.arrow_back,
@@ -97,7 +93,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         child: Text(
                           ticket.film.title!,
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 248, 30, 67),
+                            color: Color(0xFFFD0178),
                             fontFamily: 'Raleway',
                             fontSize: 16,
                           ),
@@ -117,7 +113,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 8),
-                        color: const Color.fromARGB(255, 248, 30, 67),
+                        color: const Color(0xFFFD0178),
                         height: 1,
                       ),
                       Row(
@@ -129,7 +125,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 'Cinema',
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 248, 30, 67),
+                                  color: Color(0xFFFD0178),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -137,7 +133,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 'Date & Time',
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 248, 30, 67),
+                                  color: Color(0xFFFD0178),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -145,7 +141,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 'Seat(s)',
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 248, 30, 67),
+                                  color: Color(0xFFFD0178),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -158,7 +154,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 ticket.cinema,
                                 style: const TextStyle(
-                                  color: Color.fromARGB(255, 248, 30, 67),
+                                  color: Color(0xFFFD0178),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -166,7 +162,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 ticket.time,
                                 style: const TextStyle(
-                                  color: Color.fromARGB(255, 248, 30, 67),
+                                  color: Color(0xFFFD0178),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -174,7 +170,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               Text(
                                 ticket.seats.join(", "),
                                 style: const TextStyle(
-                                  color: Color.fromARGB(255, 248, 30, 67),
+                                  color: Color(0xFFFD0178),
                                   fontFamily: 'Raleway',
                                   fontSize: 13,
                                 ),
@@ -185,7 +181,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 8),
-                        color: const Color.fromARGB(255, 248, 30, 67),
+                        color: const Color(0xFFFD0178),
                         height: 1,
                       ),
                       Row(
@@ -197,7 +193,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 const Text(
                                   'Price',
                                   style: TextStyle(
-                                    color: Color.fromARGB(255, 248, 30, 67),
+                                    color: Color(0xFFFD0178),
                                     fontFamily: 'Raleway',
                                     fontSize: 13,
                                   ),
@@ -205,7 +201,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 Text(
                                   '${ticketData.ticket!.seats.length}x200,000',
                                   style: const TextStyle(
-                                    color: Color.fromARGB(255, 248, 30, 67),
+                                    color: Color(0xFFFD0178),
                                     fontFamily: 'Raleway',
                                     fontSize: 11,
                                   ),
@@ -217,7 +213,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 Text(
                                   "Rp. ${NumberFormat("#,##0", "id_ID").format(price)}",
                                   style: const TextStyle(
-                                    color: Color.fromARGB(255, 248, 30, 67),
+                                    color: Color(0xFFFD0178),
                                     fontFamily: 'Raleway',
                                     fontSize: 13,
                                   ),
@@ -249,7 +245,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             border: Border.all(
-                                color: const Color.fromARGB(255, 248, 30, 67),
+                                color: const Color(0xFFFD0178),
                                 width: 2),
                           ),
                           child: Row(
@@ -268,9 +264,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           width: 2,
                                         ),
                                       ),
-                                      child: ClipOval(
-                                        child: Image.network(
-                                            userData.data!.profile!),
+                                      child: const ClipOval(
+                                        child: Icon(
+                                          Icons.account_balance_wallet,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -283,7 +280,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                         'My Wallet',
                                         style: TextStyle(
                                           color:
-                                              Color.fromARGB(255, 248, 30, 67),
+                                              Color(0xFFFD0178),
                                           fontFamily: 'Raleway',
                                           fontSize: 13,
                                         ),

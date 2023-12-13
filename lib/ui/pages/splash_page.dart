@@ -63,7 +63,7 @@ class _MyWidgetState extends State<SplashPage> {
                   // foregroundColor: const Color(0xFFDAA520),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  backgroundColor: const Color.fromARGB(255, 248, 30, 67),
+                  backgroundColor: const Color(0xFFFD0178),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
                 ),
@@ -110,8 +110,8 @@ class _MyWidgetState extends State<SplashPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Raleway',
                     color: signinPressed
-                        ? const Color.fromARGB(255, 248, 30, 67)
-                        : const Color.fromARGB(255, 238, 51, 82),
+                        ? Color.fromARGB(255, 227, 0, 106)
+                        : const Color(0xFFFD0178),
                     fontSize: 13,
                     decoration: TextDecoration.underline,
                   ),

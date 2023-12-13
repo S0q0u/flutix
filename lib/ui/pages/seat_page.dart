@@ -67,21 +67,6 @@ class _SeatState extends State<Seat> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   automaticallyImplyLeading: false,
-      //   title: Text(
-      //     ticket.film.title!,
-      //     textAlign: TextAlign.left,
-      //     style: const TextStyle(
-      //         color: Color.fromARGB(255, 248, 30, 67),
-      //         fontFamily: "Raleway",
-      //         fontSize: 12,
-      //         fontStyle: FontStyle.normal,
-      //         fontWeight: FontWeight.w600),
-      //   ),
-      //   toolbarHeight: 100,
-      // ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
@@ -91,7 +76,6 @@ class _SeatState extends State<Seat> {
           style: const TextStyle(
             fontFamily: 'Raleway',
             color: Colors.black,
-            //fontSize: 15,
           ),
         ),
         iconTheme: const IconThemeData(
@@ -115,7 +99,7 @@ class _SeatState extends State<Seat> {
                         width: width * 3 / 5,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: const Color.fromARGB(255, 248, 30, 67),
+                          color: const Color(0xFFFD0178),
                         ),
                         child: const Icon(Icons.laptop_sharp, color: Colors.white,),
                       ),
@@ -157,34 +141,36 @@ class _SeatState extends State<Seat> {
                                     itemBuilder: (BuildContext context, int index) {
                                       return Stack(
                                         alignment: Alignment.center,
-                                        children: [
+                                        children: [  
                                           Container(
                                             margin: const EdgeInsets.only(
                                                 top: 2, left: 2),
-                                            color: const Color.fromARGB(
-                                                255, 248, 30, 67),
+                                            color: const Color(0xFFFD0178),
                                           ),
                                           Container(
                                             padding: EdgeInsets.zero,
                                             decoration: BoxDecoration(
                                                 color: _reservations[index]
                                                     ? const Color(0xFF969696)
-                                                    : Colors.white,
+                                                    : const Color.fromRGBO(34, 35, 53, 1),
                                                 border: Border.all(
                                                     color: const Color(0xFF969696),
                                                     width: 1)),
                                             child: ToggleButtons(
-                                              fillColor: const Color.fromARGB(255, 238, 51, 82),
+                                              fillColor: const Color(0xFFFD0178),
                                               selectedColor: Colors.black,
                                               isSelected: [_selections[index]],
                                               children: [
                                                 Text(_seat[0][index],
                                                     textAlign: TextAlign.center,
-                                                    style: const TextStyle(
+                                                    style: TextStyle(
                                                         fontSize: 10,
                                                         fontFamily: "Roboto",
                                                         fontStyle: FontStyle.normal,
-                                                        fontWeight: FontWeight.w400))
+                                                        color: _reservations[index] ? Colors.black : Colors.white,
+                                                        fontWeight: FontWeight.w400
+                                                        )
+                                                        )
                                               ],
                                               onPressed: (pressIndex) {
                                                 seatToggle(index);
@@ -219,29 +205,29 @@ class _SeatState extends State<Seat> {
                                           Container(
                                             margin: const EdgeInsets.only(
                                                 top: 2, left: 2),
-                                            color: const Color.fromARGB(
-                                                255, 248, 30, 67),
+                                            color: const Color(0xFFFD0178),
                                           ),
                                           Container(
                                             padding: EdgeInsets.zero,
                                             decoration: BoxDecoration(
                                                 color: _reservations[index + 27]
                                                     ? const Color(0xFF969696)
-                                                    : Colors.white,
+                                                    : const Color.fromRGBO(34, 35, 53, 1),
                                                 border: Border.all(
                                                     color: const Color(0xFF969696),
                                                     width: 1)),
                                             child: ToggleButtons(
-                                              fillColor: const Color.fromARGB(255, 238, 51, 82),
+                                              fillColor: const Color(0xFFFD0178),
                                               selectedColor: Colors.black,
                                               isSelected: [_selections[index + 27]],
                                               children: [
                                                 Text(_seat[1][index],
                                                     textAlign: TextAlign.center,
-                                                    style: const TextStyle(
+                                                    style: TextStyle(
                                                         fontSize: 10,
                                                         fontFamily: "Roboto",
                                                         fontStyle: FontStyle.normal,
+                                                        color: _reservations[index + 27] ? Colors.black : Colors.white,
                                                         fontWeight: FontWeight.w400))
                                               ],
                                               onPressed: (pressIndex) {
@@ -260,27 +246,6 @@ class _SeatState extends State<Seat> {
                         ],
                       ),
                     ),
-                    // Column(
-                    //   children: [
-                    //     const Row(
-                    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //       children: [
-                    //         SeatInfo(
-                    //           color: Colors.white,
-                    //           text: "Available",
-                    //         ),
-                    //         SeatInfo(
-                    //           color: Color(0xFF969696),
-                    //           text: "Unavailabe",
-                    //         ),
-                    //         SeatInfo(
-                    //           color: const Color.fromARGB(255, 238, 51, 82),
-                    //           text: "Selected",
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ],
-                    // )
                   ],
                 ),
               )
@@ -288,12 +253,11 @@ class _SeatState extends State<Seat> {
 
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            //margin: const EdgeInsets.symmetric(horizontal: 20),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SeatInfo(
-                  color: Colors.white,
+                  color: Color.fromRGBO(34, 35, 53, 1),
                   text: "Available",
                 ),
                 SeatInfo(
@@ -301,7 +265,7 @@ class _SeatState extends State<Seat> {
                   text: "Unavailabe",
                 ),
                 SeatInfo(
-                  color: Color.fromARGB(255, 238, 51, 82),
+                  color: Color(0xFFFD0178),
                   text: "Selected",
                 ),
               ],
@@ -359,24 +323,6 @@ class _SeatState extends State<Seat> {
               ],
             ),
           )
-
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Visibility(
-          //     visible: checkSelected,
-          //     child: const Align(
-          //       alignment: Alignment.center,
-          //       child: Text(
-          //         'Please Select First!',
-          //         style: TextStyle(
-          //           fontFamily: 'Raleway',
-          //           fontSize: 15,
-          //           color: const Color.fromARGB(255, 238, 51, 82),
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
@@ -406,7 +352,7 @@ class SeatInfo extends StatelessWidget {
           _text,
           textAlign: TextAlign.center,
           style: const TextStyle(
-              color: Color.fromARGB(255, 248, 30, 67),
+              color: Color(0xFFFD0178),
               fontFamily: "Raleway",
               fontSize: 16,
               fontStyle: FontStyle.normal,
@@ -448,7 +394,7 @@ class SeatAppbar extends StatelessWidget {
                 ticket.film.title!,
                 textAlign: TextAlign.left,
                 style: const TextStyle(
-                    color: Color.fromARGB(255, 248, 30, 67),
+                    color: Color(0xFFFD0178),
                     fontFamily: "Raleway",
                     fontSize: 12,
                     fontStyle: FontStyle.normal,

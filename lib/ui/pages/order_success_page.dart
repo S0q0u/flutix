@@ -17,7 +17,7 @@ class OrderSuccessPage extends StatelessWidget {
             Text(
               'You have succesfuly\nbought the ticket!',
               style: TextStyle(
-                color: const Color.fromARGB(255, 248, 30, 67),
+                color: const Color(0xFFFD0178),
                 fontFamily: 'Raleway',
                 fontSize: 26,
               ),
@@ -74,7 +74,7 @@ class OrderSuccessPage extends StatelessWidget {
                 ));
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 248, 30, 67),
+                backgroundColor: const Color(0xFFFD0178),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
@@ -109,7 +109,7 @@ class OrderSuccessPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                   side: BorderSide(
-                      color: const Color.fromARGB(255, 248, 30, 67), width: 1),
+                      color: const Color(0xFFFD0178), width: 1),
                 ),
               ),
               child: Container(
@@ -120,7 +120,7 @@ class OrderSuccessPage extends StatelessWidget {
                 child: Text(
                   'Home',
                   style: TextStyle(
-                    color: const Color.fromARGB(255, 248, 30, 67),
+                    color: const Color(0xFFFD0178),
                     fontFamily: 'Raleway',
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
