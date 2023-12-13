@@ -1,10 +1,10 @@
 part of 'pages.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({super.key});
+  const UserProfile({Key? key}) : super(key: key);
 
   @override
-  State<UserProfile> createState() => _UserProfileState();
+  _UserProfileState createState() => _UserProfileState();
 }
 
 class _UserProfileState extends State<UserProfile> {
@@ -36,260 +36,12 @@ class _UserProfileState extends State<UserProfile> {
     'Portuguese'
   ];
 
-  final ScrollController _scrollContollerOne = ScrollController();
-  final ScrollController _scrollContollerTwo = ScrollController();
-
   @override
   void dispose() {
-    _scrollContollerOne.dispose();
-    _scrollContollerTwo.dispose();
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width - 50;
-    var h = MediaQuery.of(context).size.height - 260;
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: const Text(
-          "Account Registered!",
-          style: TextStyle(
-            color: Color.fromARGB(255, 248, 30, 67),
-            fontSize: 18,
-            fontFamily: 'Raleway',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) {
-                    return const SuccessPage();
-                  },
-                ));
-              },
-              child: const Text(
-                "Skip",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 248, 30, 67),
-                  fontSize: 16,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w500,
-                ),
-              ))
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(children: [
-            Container(
-              width: w,
-              height: h * 2 / 5,
-              margin: const EdgeInsets.fromLTRB(25, 35, 25, 23.5),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: w,
-                    height: (h * 2 / 5) * 2 / 5,
-                    padding: EdgeInsets.only(right: w / 4),
-                    child: const Text(
-                      "What's you're into? Let us recommend it for you!",
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 20,
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: w,
-                    height: (h * 2 / 5) * 3 / 5,
-                    child: RawScrollbar(
-                      controller: _scrollContollerOne,
-                      thumbVisibility: true,
-                      trackVisibility: false,
-                      thickness: 4,
-                      thumbColor: Color.fromARGB(255, 248, 30, 67),
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        child: GridView.builder(
-                          scrollDirection: Axis.horizontal,
-                          controller: _scrollContollerOne,
-                          physics: const ScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 1 / 3, crossAxisCount: 3),
-                          itemCount: 13,
-                          itemBuilder: (BuildContext context, int index) {
-                            return LayoutBuilder(
-                                builder: (context, constraints) {
-                              return ToggleButtons(
-                                constraints: BoxConstraints.expand(
-                                    width: constraints.maxWidth - 4,
-                                    height: constraints.maxHeight - 4),
-                                renderBorder: true,
-                                color: const Color.fromARGB(255, 248, 30, 67),
-                                borderColor:
-                                    const Color.fromARGB(255, 248, 30, 67),
-                                borderWidth: 1,
-                                borderRadius: BorderRadius.circular(25),
-                                fillColor: const Color.fromARGB(255, 238, 51, 82),
-                                selectedBorderColor:const Color.fromARGB(255, 238, 51, 82),
-                                selectedColor: Colors.white,
-                                isSelected: [_selections1[index]],
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 12),
-                                    child: Text(_genre[index],
-                                        style: const TextStyle(fontSize: 12)),
-                                  )
-                                ],
-                                onPressed: (pressIndex) {
-                                  setState(() {
-                                    if (_selections1[index] == true) {
-                                      _selections1[index] = false;
-                                    } else {
-                                      _selections1[index] = true;
-                                    }
-                                  });
-                                },
-                              );
-                            });
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: w,
-              height: h * 2 / 5,
-              margin: const EdgeInsets.fromLTRB(25, 20, 25, 86),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: w,
-                    height: (h * 2 / 5) * 2 / 5,
-                    padding: EdgeInsets.only(right: w / 4),
-                    child: const Text(
-                      'Which one you Understand? We will filter it!',
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 20,
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: w,
-                    height: (h * 2 / 5) * 3 / 5,
-                    child: RawScrollbar(
-                      controller: _scrollContollerTwo,
-                      thumbVisibility: true,
-                      trackVisibility: false,
-                      thickness: 4,
-                      thumbColor: const Color.fromARGB(255, 248, 30, 67),
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        child: GridView.builder(
-                          scrollDirection: Axis.horizontal,
-                          controller: _scrollContollerTwo,
-                          physics: const ScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 1 / 3, crossAxisCount: 3),
-                          itemCount: 8,
-                          itemBuilder: (BuildContext context, int index) {
-                            return LayoutBuilder(
-                                builder: (context, constraints) {
-                              return ToggleButtons(
-                                constraints: BoxConstraints.expand(
-                                    width: constraints.maxWidth - 4,
-                                    height: constraints.maxHeight - 4),
-                                renderBorder: true,
-                                color: const Color.fromARGB(255, 248, 30, 67),
-                                borderColor:
-                                    const Color.fromARGB(255, 248, 30, 67),
-                                borderWidth: 1,
-                                borderRadius: BorderRadius.circular(25),
-                                fillColor: const Color.fromARGB(255, 238, 51, 82),
-                                selectedBorderColor: const Color.fromARGB(255, 238, 51, 82),
-                                selectedColor: Colors.white,
-                                isSelected: [_selections2[index]],
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 12),
-                                    child: Text(_lang[index],
-                                        style: const TextStyle(fontSize: 12)),
-                                  )
-                                ],
-                                onPressed: (pressIndex) {
-                                  setState(() {
-                                    if (_selections2[index] == true) {
-                                      _selections2[index] = false;
-                                    } else {
-                                      _selections2[index] = true;
-                                    }
-                                  });
-                                },
-                              );
-                            });
-                          },
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ]),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 25),
-            child: RowButtons(
-                width: w,
-                height: h,
-                onPressedContinue: () {
-                  selectedGenres(context);
-                  selectedLanguage(context);
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) {
-                      return const SuccessPage();
-                    },
-                  ));
-                },
-                onPressedBack: () {
-                  Auth().signOut();
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) {
-                      return const SignIn();
-                    },
-                  ));
-                }),
-          )
-        ],
-      ),
-    );
-  }
-
-  Future<void> selectedGenres(BuildContext context) async {
+  Future<void> saveSelectedGenres(BuildContext context) async {
     List<String> selectedGenres = [];
     for (int i = 0; i < _selections1.length; i++) {
       if (_selections1[i]) {
@@ -305,11 +57,10 @@ class _UserProfileState extends State<UserProfile> {
       });
     } catch (e) {
       return;
-      // Handle error appropriately
     }
   }
 
-  Future<void> selectedLanguage(BuildContext context) async {
+  Future<void> saveSelectedLanguage(BuildContext context) async {
     List<String> selectedLanguage = [];
     for (int i = 0; i < _selections2.length; i++) {
       if (_selections2[i]) {
@@ -325,7 +76,170 @@ class _UserProfileState extends State<UserProfile> {
       });
     } catch (e) {
       return;
-      // Handle error appropriately
     }
+  }
+
+  Widget buildGenreContainer(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selections1[index] = !_selections1[index];
+        });
+        saveSelectedGenres(context);
+      },
+      child: Container(
+        height: 100,
+        width: 150,
+        margin: const EdgeInsets.only(left: 20, bottom: 20),
+        decoration: BoxDecoration(
+          color: _selections1[index] ? Colors.pink : Color.fromRGBO(34, 35, 53, 1),
+        ),
+        child: Center(
+          child: Text(
+            _genre[index],
+            style: GoogleFonts.raleway(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildLanguageContainer(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selections2[index] = !_selections2[index];
+        });
+        saveSelectedLanguage(context);
+      },
+      child: Container(
+        height: 100,
+        width: 150,
+        margin: const EdgeInsets.only(left: 20, bottom: 20),
+        decoration: BoxDecoration(
+          color: _selections2[index] ? Colors.pink : Color.fromRGBO(34, 35, 53, 1),
+        ),
+        child: Center(
+          child: Text(
+            _lang[index],
+              style: GoogleFonts.raleway(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
+              ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 20, top: 20),
+                  child: Text(
+                    "Select Your Fav!",
+                    style: GoogleFonts.raleway(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Wrap(
+              spacing: 20,
+              runSpacing: 20,
+              alignment: WrapAlignment.center,
+              children: [
+                for (int i = 0; i < _genre.length; i++)
+                  buildGenreContainer(i),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 20, top: 20),
+                  child: Text(
+                    "Which Movie Language You Prefer?",
+                    style: GoogleFonts.raleway(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Wrap(
+              spacing: 20,
+              runSpacing: 20,
+              alignment: WrapAlignment.center,
+              children: [
+                for (int i = 0; i < _lang.length; i++)
+                  buildLanguageContainer(i),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 20, top: 20),
+                  child: Text(
+                    "Continue to Sign Up",
+                    style: GoogleFonts.raleway(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 25),
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SuccessPage()),
+                      );
+                    },
+                    mini: true,
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
+                    backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                    shape: const CircleBorder(),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
   }
 }
