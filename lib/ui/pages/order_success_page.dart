@@ -98,7 +98,7 @@ class OrderSuccessPage extends StatelessWidget {
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
                     return const Home();
                   },

@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
           //backgroundColor: const Color.fromARGB(255, 22, 23, 35),
           backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
           unselectedItemColor: Colors.white,
-          selectedItemColor: const Color.fromARGB(255, 248, 30, 67),
+          selectedItemColor: const Color.fromRGBO(253,1,120, 1),
           currentIndex: _index,
           // onTap: ,
           onTap: (int index) {
