@@ -11,7 +11,7 @@ class TopUpSuccessPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -23,36 +23,32 @@ class TopUpSuccessPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.check_circle,
                     color: Color.fromRGBO(87,163,67, 1),
                     size: 80,
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   const Text(
                     'You have Successfully',
                     style: TextStyle(
-                      //color: Color.fromARGB(255, 248, 30, 67),
                       color: Colors.black,
                       fontFamily: 'Raleway',
                       fontSize: 20,
-                      //fontWeight: FontWeight.bold,
                     ),
                   ),
                   const Text(
                     'top-up your balance',
                     style: TextStyle(
-                      //color: Color.fromARGB(255, 248, 30, 67),
                       color: Colors.black,
                       fontFamily: 'Raleway',
                       fontSize: 20,
-                      //fontWeight: FontWeight.bold,
                     ),
                   ),
 
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
 
                   const Text(
                     'My Wallet',
@@ -62,27 +58,23 @@ class TopUpSuccessPage extends StatelessWidget {
                       fontSize: 15,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     "Rp. ${NumberFormat("#,##0", "id_ID").format(user.wallet)}",
                     style: const TextStyle(
-                      //color: Color.fromARGB(255, 248, 30, 67),
                       color: Colors.black,
                       fontFamily: 'Roboto',
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
-                  //SizedBox(height: 60),
                 ],
               ),
             ),
           ),
 
           Container(
-            margin: EdgeInsets.only(bottom: 20),
-            //color: const Color(0xFF393E46),
+            margin: const EdgeInsets.only(bottom: 20),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(
@@ -94,7 +86,7 @@ class TopUpSuccessPage extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromRGBO(253,1,120, 1),
+                backgroundColor: const Color.fromRGBO(253,1,120, 1),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
@@ -106,7 +98,6 @@ class TopUpSuccessPage extends StatelessWidget {
                 child: const Text(
                   'Close',
                   style: TextStyle(
-                    //color: Color(0xFFFFDF00),
                     color: Colors.white,
                     fontFamily: 'Raleway',
                     fontSize: 16,

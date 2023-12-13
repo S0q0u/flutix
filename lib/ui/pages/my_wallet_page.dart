@@ -156,9 +156,6 @@ class _MyWalletPageState extends State<MyWalletPage> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
-                    // if (states.contains(MaterialState.pressed)) {
-                    //   return const Color.fromRGBO(34, 35, 53, 1); // Warna saat tombol ditekan
-                    // }
                     return const Color.fromRGBO(
                         253, 1, 120, 1); // Warna default
                   },
@@ -186,49 +183,6 @@ class _MyWalletPageState extends State<MyWalletPage> {
               ),
             ),
           ),
-
-          // Container(
-          //   margin: EdgeInsets.all(10),
-          //   child: ElevatedButton.icon(
-          //     onPressed: () async {
-          //       await userData.updateField("wallet",
-          //           userData.data!.wallet! + amounts[selectedTopUpIndex!]);
-          //       if (!context.mounted) return;
-          //       Navigator.of(context).push(MaterialPageRoute(
-          //         builder: (context) {
-          //           return const TopUpSuccessPage();
-          //         },
-          //       ));
-          //     },
-          //     style: ElevatedButton.styleFrom(
-          //       //backgroundColor: selectedTheme.primaryColor,
-          //       minimumSize:
-          //       const Size(250, 50), // Atur lebar dan tinggi button
-          //       padding: const EdgeInsets.symmetric(
-          //         vertical: 10,
-          //         horizontal: 16,
-          //       ), // Padding di sekitar icon dan teks
-          //       shape: RoundedRectangleBorder(
-          //         borderRadius: BorderRadius.circular(
-          //           15.0, // Mengatur radius untuk membuat button rounded
-          //         ),
-          //       ),
-          //     ),
-          //     icon: const Icon(
-          //       Icons.add,
-          //       color: Colors.white,
-          //     ),
-          //     label: const Text(
-          //       'Confirm Top-Up',
-          //       style: TextStyle(
-          //         color: Color(0xFF393E46),
-          //         fontFamily: 'Raleway',
-          //         fontSize: 13,
-          //         fontWeight: FontWeight.bold,
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

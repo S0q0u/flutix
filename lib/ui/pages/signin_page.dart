@@ -23,11 +23,8 @@ class _SignInState extends State<SignIn> {
   bool loginFailed = false;
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    bool isButtonPressed = false;
 
     return Material(
-      // color: const Color(0xff393e46),
       color: Colors.white,
       child: Center(
         child: Form(

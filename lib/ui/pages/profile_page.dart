@@ -114,9 +114,6 @@ class ProfilePage extends StatelessWidget {
                 Icons.exit_to_app_outlined,
                 'Sign Out',
                 onPressed: () async {
-                  // userData.disposeVar();
-                  // Provider.of<TicketData>(context, listen: false).disposeVar();
-                  // Auth().signOut();
                   await Auth().signOut();
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) {

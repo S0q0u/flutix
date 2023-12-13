@@ -34,15 +34,12 @@ class _SignUpState extends State<SignUp> {
   }
 
   String imagePath = '';
-  // bool textFieldEmptyEmail = false;
-  // bool textFieldEmptyPassword = false;
-  // bool textFieldEmptyNama = false;
-
+  
   Future<void> _browseFile() async {
     final ImagePicker _picker = ImagePicker();
     XFile? image = await _picker.pickImage(
         source: ImageSource
-            .gallery); // Ubah ke ImageSource.camera jika ingin menggunakan kamera
+            .gallery); 
 
     if (image != null) {
       setState(() {
@@ -53,8 +50,6 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    bool isButtonPressed = false;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -62,7 +57,6 @@ class _SignUpState extends State<SignUp> {
           style: TextStyle(
             fontFamily: 'Raleway',
             color: Colors.black,
-            //fontSize: 15,
           ),
         ),
         centerTitle: true,
@@ -71,7 +65,6 @@ class _SignUpState extends State<SignUp> {
         iconTheme: const IconThemeData(),
         automaticallyImplyLeading: true,
       ),
-      // backgroundColor: const Color(0xff393e46),
       backgroundColor: Colors.white,
       body: Center(
         child: Form(
@@ -117,7 +110,6 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
                 Container(
-                  //padding: const EdgeInsets.fromLTRB(23, 0, 23, 0),
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Colors.white,

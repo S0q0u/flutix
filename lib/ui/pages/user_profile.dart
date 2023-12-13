@@ -92,7 +92,7 @@ class _UserProfileState extends State<UserProfile> {
         width: 150,
         //margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
-          color: _selections1[index] ? Colors.pink : Color.fromRGBO(34, 35, 53, 1),
+          color: _selections1[index] ? Colors.pink : const Color.fromRGBO(34, 35, 53, 1),
         ),
         child: Center(
           child: Text(
@@ -121,7 +121,7 @@ class _UserProfileState extends State<UserProfile> {
         width: 150,
         //margin: const EdgeInsets.only(left: 20, bottom: 20),
         decoration: BoxDecoration(
-          color: _selections2[index] ? Colors.pink : Color.fromRGBO(34, 35, 53, 1),
+          color: _selections2[index] ? Colors.pink : const Color.fromRGBO(34, 35, 53, 1),
         ),
         child: Center(
           child: Text(
@@ -200,50 +200,12 @@ class _UserProfileState extends State<UserProfile> {
               ],
             ),
             const SizedBox(height: 10),
-
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   children: [
-            //     Padding(
-            //       padding: EdgeInsets.only(left: 20, top: 20),
-            //       child: Text(
-            //         "Continue to Sign Up",
-            //         style: GoogleFonts.raleway(
-            //           color: Colors.black,
-            //           fontSize: 18,
-            //           fontWeight: FontWeight.normal,
-            //         ),
-            //       ),
-            //     ),
-            //     Padding(
-            //       padding: const EdgeInsets.only(right: 25),
-            //       child: FloatingActionButton(
-            //         onPressed: () {
-            //           Navigator.push(
-            //             context,
-            //             MaterialPageRoute(builder: (context) => const SuccessPage()),
-            //           );
-            //         },
-            //         mini: true,
-            //         child: const Icon(
-            //           Icons.arrow_forward,
-            //           color: Colors.white,
-            //         ),
-            //         backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
-            //         shape: const CircleBorder(),
-            //       ),
-            //     ),
-            //   ],
-            // ),
-            // const SizedBox(height: 20),
-
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Text(
                       'Continue to Sign Up',
                       style: TextStyle(
@@ -255,10 +217,6 @@ class _UserProfileState extends State<UserProfile> {
                     )
                   ),
                   Container(
-                    // decoration: const BoxDecoration(
-                    //   shape: BoxShape.circle,
-                    //   color: Color.fromRGBO(34, 35, 53, 1),
-                    // ),
                     child: FloatingActionButton(
                       onPressed: () {
                         Navigator.push(
@@ -267,12 +225,12 @@ class _UserProfileState extends State<UserProfile> {
                         );
                       },
                       mini: true,
+                      backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                      shape: const CircleBorder(),
                       child: const Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
                       ),
-                      backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
-                      shape: const CircleBorder(),
                     ),
                   )
                 ],
