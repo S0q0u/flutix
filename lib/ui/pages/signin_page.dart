@@ -161,82 +161,12 @@ class _SignInState extends State<SignIn> {
                   const SizedBox(
                     height: 10,
                   ),
-                  // IconButton(
-                  //   onPressed: () {
-                  //     handleSubmit();
-                  //   },
-                  //   icon: const Icon(
-                  //     Icons.arrow_circle_right,
-                  //     size: 60,
-                  //   ),
-                  //   // style: ElevatedButton.styleFrom(
-                  //   //   fixedSize: const Size(330, 40),
-                  //   // ).merge(
-                  //   //   ButtonStyle(
-                  //   //     backgroundColor:
-                  //   //         MaterialStateProperty.resolveWith<Color>(
-                  //   //       (Set<MaterialState> states) {
-                  //   //         if (states.contains(MaterialState.pressed)) {
-                  //   //           isButtonPressed = true;
-                  //   //           return const Color.fromARGB(255, 248, 30, 67);
-                  //   //         } else {
-                  //   //           isButtonPressed = false;
-                  //   //           return const Color.fromARGB(255, 238, 51, 82);
-                  //   //         }
-                  //   //       },
-                  //   //     ),
-                  //   //   ),
-                  //   // ),
-                  //   // child: const Text(
-                  //   //   'Sign In',
-                  //   //   style: TextStyle(
-                  //   //     fontFamily: 'Raleway',
-                  //   //     fontSize: 16,
-                  //   //     fontWeight: FontWeight.w700,
-                  //   //     height: 1.175,
-                  //   //     color: Colors.white,
-                  //   //   ),
-                  //   // ),
-
-                  // ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     Padding(
-                  //       padding: EdgeInsets.only(left: 20, top: 20),
-                  //       child: Text(
-                  //         "Continue to Sign In",
-                  //         style: GoogleFonts.raleway(
-                  //           color: Colors.black,
-                  //           fontSize: 18,
-                  //           fontWeight: FontWeight.normal,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Padding(
-                  //       padding: const EdgeInsets.only(right: 25),
-                  //       child: FloatingActionButton(
-                  //         onPressed: () {
-                  //           handleSubmit();
-                  //         },
-                  //         mini: true,
-                  //         child: const Icon(
-                  //           Icons.arrow_forward,
-                  //           color: Colors.white,
-                  //         ),
-                  //         backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
-                  //         shape: const CircleBorder(),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Expanded(
+                        const Expanded(
                             child: Text(
                               'Continue to Sign In',
                               style: TextStyle(
@@ -253,12 +183,12 @@ class _SignInState extends State<SignIn> {
                               handleSubmit();
                             },
                             mini: true,
+                            backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                            shape: const CircleBorder(),
                             child: const Icon(
                               Icons.arrow_forward,
                               color: Colors.white,
                             ),
-                            backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
-                            shape: const CircleBorder(),
                           ),
                         )
                       ],

@@ -68,7 +68,7 @@ class _SignUpState extends State<SignUp> {
         centerTitle: true,
         shadowColor: Colors.transparent,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(),
+        iconTheme: const IconThemeData(),
         automaticallyImplyLeading: true,
       ),
       // backgroundColor: const Color(0xff393e46),
@@ -280,69 +280,34 @@ class _SignUpState extends State<SignUp> {
                           ],
                         ),
                       ),
-
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Padding(
-                      //       padding: EdgeInsets.only(left: 20, top: 20),
-                      //       child: Text(
-                      //         "Continue to Sign Up",
-                      //         style: GoogleFonts.raleway(
-                      //           color: Colors.black,
-                      //           fontSize: 18,
-                      //           fontWeight: FontWeight.normal,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     Padding(
-                      //       padding: const EdgeInsets.only(right: 25),
-                      //       child: FloatingActionButton(
-                      //         onPressed: () {
-                      //           handleSubmit();
-                      //         },
-                      //         mini: true,
-                      //         child: const Icon(
-                      //           Icons.arrow_forward,
-                      //           color: Colors.white,
-                      //         ),
-                      //         backgroundColor:
-                      //             const Color.fromRGBO(34, 35, 53, 1),
-                      //         shape: const CircleBorder(),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
-                      // const SizedBox(height: 20),
-
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Expanded(
+                            const Expanded(
                                 child: Text(
-                                  'Continue to Sign Up',
-                                  style: TextStyle(
-                                      fontFamily: 'Raleway',
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                )
-                            ),
+                              'Continue to Sign Up',
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            )),
                             Container(
                               child: FloatingActionButton(
                                 onPressed: () {
                                   handleSubmit();
                                 },
                                 mini: true,
+                                backgroundColor:
+                                    const Color.fromRGBO(34, 35, 53, 1),
+                                shape: const CircleBorder(),
                                 child: const Icon(
                                   Icons.arrow_forward,
                                   color: Colors.white,
                                 ),
-                                backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
-                                shape: const CircleBorder(),
                               ),
                             )
                           ],
@@ -414,49 +379,20 @@ class _SignUpState extends State<SignUp> {
         ));
       }
     } catch (e) {
-      // Tampilkan error dialog
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Registrasi Error'),
-            content: Text(e.toString()),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          );
-        },
+      // Tampilkan error dialog=
+      return AlertDialog(
+        title: const Text('Registrasi Error'),
+        content: Text(e.toString()),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('OK'),
+          ),
+        ],
       );
     }
-    // Map<String, dynamic> registrationSuccess =
-    //     await _auth.regis(email, password, confPass);
-
-    // if (registrationSuccess['success']) {
-    //   String uid = registrationSuccess['userId'];
-    //   // Jika registrasi berhasil, arahkan pengguna ke halaman profil
-
-    //   userData.userId = uid;
-    //   await userData.addUserToFirestore(
-    //       uid, _ctrlEmail.text, _ctrlNama.text, imagePath);
-    //   await userData.getData();
-
-    //   if (!context.mounted) return;
-    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-    //     builder: (context) {
-    //       return const UserProfile();
-    //     },
-    //   ));
-    // }
-    // // Jika registrasi gagal, tampilkan AlertDialog
-    // else {
-    //   if (!context.mounted) return;
-    //   dialog("Registrasi Gagal");
-    // }
   }
 
   void dialog(String text) {
