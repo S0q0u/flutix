@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.center,
-                margin: const EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 10, top: 10),
                 child: Stack(
                   children: [
                     Container(
@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
                           backgroundImage:
                               NetworkImage(userData.data!.profile!)),
                     ),
-                    const SizedBox(height: 210),
+                    const SizedBox(height: 200),
                     Positioned(
                       bottom: 0,
                       left: 0,
@@ -40,7 +40,7 @@ class ProfilePage extends StatelessWidget {
                           fontFamily: 'Raleway',
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -81,7 +81,7 @@ class ProfilePage extends StatelessWidget {
                 Icons.account_balance_wallet,
                 'Wallet',
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) {
                       return const MyWalletPage();
                     },
@@ -143,7 +143,7 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xff393e46),
+      color: Colors.white,
       child: InkWell(
         splashColor: const Color.fromARGB(255, 238, 51, 82),
         onTap: onPressed,
@@ -160,7 +160,7 @@ class MenuItem extends StatelessWidget {
               Text(
                 label,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 14,
                   fontFamily: 'Inter',
                 ),

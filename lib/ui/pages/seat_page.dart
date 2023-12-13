@@ -94,7 +94,7 @@ class _SeatState extends State<Seat> {
             //fontSize: 15,
           ),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -287,9 +287,9 @@ class _SeatState extends State<Seat> {
           ),
 
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
             //margin: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SeatInfo(
@@ -301,14 +301,14 @@ class _SeatState extends State<Seat> {
                   text: "Unavailabe",
                 ),
                 SeatInfo(
-                  color: const Color.fromARGB(255, 238, 51, 82),
+                  color: Color.fromARGB(255, 238, 51, 82),
                   text: "Selected",
                 ),
               ],
             ),
           ),
 
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
 
           Container(
             //color: Colors.orange,
@@ -316,7 +316,7 @@ class _SeatState extends State<Seat> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
+                const Expanded(
                     child: Text(
                       'Confirm Your Book',
                       style: TextStyle(
@@ -335,7 +335,7 @@ class _SeatState extends State<Seat> {
                   width: 60,
                   height: 60,
                   child: IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward,
                       color: Colors.white,
                       size: 50,

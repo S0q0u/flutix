@@ -52,6 +52,7 @@ class _SignUpState extends State<SignUp> {
             //fontSize: 15,
           ),
         ),
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: true,
       ),
       // backgroundColor: const Color(0xff393e46),
@@ -66,6 +67,7 @@ class _SignUpState extends State<SignUp> {
                 Stack(
                   children: [
                     CircleAvatar(
+                      backgroundColor: const Color.fromARGB(255, 236, 236, 236),
                       radius: 40,
                       backgroundImage: (imagePath.isNotEmpty)
                           ? NetworkImage(imagePath)
@@ -263,6 +265,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const SizedBox(width: 25),
                           const Expanded(
@@ -277,7 +280,8 @@ class _SignUpState extends State<SignUp> {
                             },
                             icon: const Icon(
                               Icons.arrow_circle_right,
-                              size: 60,
+                              size: 50,
+                              color: Color.fromRGBO(34, 35, 53, 1),
                             ),
                           ),
                         ],

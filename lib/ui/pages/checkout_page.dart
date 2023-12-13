@@ -12,7 +12,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
   Widget build(BuildContext context) {
     TicketData ticketData = Provider.of<TicketData>(context, listen: false);
     UserData userData = Provider.of<UserData>(context);
-    int price = 200000 * ticketData.ticket!.seats.length;
+    int price = 50000 * ticketData.ticket!.seats.length;
     Ticket ticket = ticketData.ticket!;
     Color payColor = userData.data!.wallet! < price
         ? Colors.red

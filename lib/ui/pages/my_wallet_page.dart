@@ -30,27 +30,27 @@ class _MyWalletPageState extends State<MyWalletPage> {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'My Wallet',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
           ),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-
           // Kontainer "user wallet"
           Container(
             // margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            margin: const EdgeInsets.only(top: 20, bottom: 10, left: 20, right: 20),
+            margin:
+                const EdgeInsets.only(top: 20, bottom: 10, left: 20, right: 20),
             padding: const EdgeInsets.all(10),
             height: 160,
-            color: Color.fromRGBO(34, 35, 53, 1),
+            color: const Color.fromRGBO(34, 35, 53, 1),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -64,9 +64,9 @@ class _MyWalletPageState extends State<MyWalletPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                const Text(
                   "Available Balance",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Raleway',
                     fontSize: 18,
@@ -81,9 +81,9 @@ class _MyWalletPageState extends State<MyWalletPage> {
             width: width,
             margin: const EdgeInsets.only(left: 20, bottom: 10, top: 10),
             alignment: Alignment.topLeft,
-            child: Text(
+            child: const Text(
               'Top Up',
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.black,
                 fontFamily: 'Raleway',
                 fontSize: 18,
@@ -97,8 +97,8 @@ class _MyWalletPageState extends State<MyWalletPage> {
               scrollDirection: Axis.vertical,
               itemCount: 10,
               itemBuilder: (context, index) {
-                final formattedAmount = NumberFormat("#,##0", "id_ID")
-                    .format(50000 * (index + 1));
+                final formattedAmount =
+                    NumberFormat("#,##0", "id_ID").format(50000 * (index + 1));
                 return GestureDetector(
                   onTap: () {
                     setState(() {
@@ -107,10 +107,9 @@ class _MyWalletPageState extends State<MyWalletPage> {
                   },
                   child: Container(
                     color: selectedTopUpIndex == index
-                        ? const Color.fromRGBO(253,1,120, 1) // Warna terpilih
+                        ? const Color.fromRGBO(253, 1, 120, 1) // Warna terpilih
                         : Colors.white,
-                    margin:
-                    const EdgeInsets.only(top: 10, left: 20, right: 20),
+                    margin: const EdgeInsets.only(top: 10, left: 20, right: 20),
                     padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
@@ -118,7 +117,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
                           Icons.monetization_on,
                           color: selectedTopUpIndex == index
                               ? Colors.white
-                              : Colors.black,
+                              : Colors.green,
                           size: 30,
                         ),
                         const SizedBox(width: 10),
@@ -142,7 +141,7 @@ class _MyWalletPageState extends State<MyWalletPage> {
 
           // Tombol "Confirm Top-Up"
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: ElevatedButton(
               onPressed: () async {
                 await userData.updateField("wallet",
@@ -160,7 +159,8 @@ class _MyWalletPageState extends State<MyWalletPage> {
                     // if (states.contains(MaterialState.pressed)) {
                     //   return const Color.fromRGBO(34, 35, 53, 1); // Warna saat tombol ditekan
                     // }
-                    return const Color.fromRGBO(253,1,120, 1); // Warna default
+                    return const Color.fromRGBO(
+                        253, 1, 120, 1); // Warna default
                   },
                 ),
                 shape: MaterialStateProperty.all(

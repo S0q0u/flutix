@@ -200,6 +200,7 @@ class _SignInState extends State<SignIn> {
 
                   // ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(width: 25),
                       const Expanded(
