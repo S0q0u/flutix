@@ -81,7 +81,7 @@ class ProfilePage extends StatelessWidget {
                 Icons.account_balance_wallet,
                 'Wallet',
                 onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) {
                       return const MyWalletPage();
                     },

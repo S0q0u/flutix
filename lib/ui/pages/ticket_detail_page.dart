@@ -6,335 +6,290 @@ class TicketDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          'Ticket',
+          style: const TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
-      home: Scaffold(
-        body: ListView(
-          children: [
-            Container(
-              width: width,
-              height: 758,
-              clipBehavior: Clip.antiAlias,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x3F000000),
-                    blurRadius: 4,
-                    offset: Offset(0, 10),
-                    spreadRadius: 0,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 20, top: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    ticket.film.backdropUrl!,
+                    fit: BoxFit.cover,
+                    width: width,
+                  ),
+                ),
+              ),
+
+
+
+              Text(
+                ticket.film.title!,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: "Raleway",
+                  //fontSize: 20,
+                  fontSize: width * 0.06,
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+
+              SizedBox(height: 5),
+
+              Text(
+                ticket.film.genres!.join(", "),
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontFamily: "Raleway",
+                  fontSize: width * 0.04,
+                  fontStyle: FontStyle.normal,
+                  //fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+
+              SizedBox(height: 5),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  for (int i = 0; i < 5; i++)
+                    Icon(
+                      Icons.star,
+                      color: i < (ticket.film.rating ?? 0).round()? Colors.yellow : Colors.grey,
+                      size: width * 0.04,
+                      // ? Color.fromARGB(255, 248, 30, 67)
+                    ),
+                  Text(
+                    '\t\t${(ticket.film.rating ?? 0).round()}/5',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: width * 0.04,
+                    ),
                   ),
                 ],
               ),
-              child: Stack(
+
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                height: 1, // Lebar garis
+                color: Colors.black.withOpacity(0.5),
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Text(
+                    'Cinema',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Raleway",
+                      fontSize: width * 0.04,
+                      fontStyle: FontStyle.normal,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   Container(
-                    width: 390,
-                    height: 255,
-                    // width: width,
-                    // height: height * 0.8,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(ticket.film.backdropUrl!),
-                        fit: BoxFit.cover,
-                      ),
-                      border: const Border(
-                        bottom: BorderSide(
-                          width: 35,
-                        ),
-                      ),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x3F000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
-                          spreadRadius: 0,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    left: 13,
-                    top: 15,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        backgroundColor: const Color.fromARGB(255, 248, 30, 67),
-                      ),
-                      child: const Row(
-                        children: [
-                          Icon(Icons.arrow_back, color: Colors.white),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 66,
-                    top: 412,
-                    child: Text(
-                      'Cinema',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 244,
-                    top: 412,
                     child: Text(
                       ticket.cinema,
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 66,
-                    top: 439,
-                    child: Text(
-                      'Date & Time',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 244,
-                    top: 439,
-                    child: Text(
-                      ticket.time,
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 66,
-                    top: 466,
-                    child: Text(
-                      'Seat(s)',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 260,
-                    top: 466,
-                    child: Text(
-                      ticket.seats.join(", "),
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 23,
-                    top: 532,
-                    child: Text(
-                      'Name',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 23,
-                    top: 556,
-                    child: Text(
-                      Provider.of<UserData>(context).data!.nama!,
-                      // ignore: prefer_const_constructors
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 23,
-                    top: 583,
-                    child: Text(
-                      'Price',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 23,
-                    top: 611,
-                    child: Text(
-                      "Rp. ${NumberFormat("#,##0", "id_ID").format(ticket.harga)}",
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 23,
-                    top: 701,
-                    child: Text(
-                      'Order ID ',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 227,
-                    top: 696,
-                    child: Text(
-                      ticket.id,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 66,
-                    top: 300,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          ticket.film.title!,
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 248, 30, 67),
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          ticket.film.genres!.join(", "),
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Positioned(
-                    left: 242,
-                    top: 367,
-                    child: Text(
-                      '4/5',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 66,
-                    top: 394,
-                    child: Container(
-                      width: 260,
-                      height: 1,
-                      color: const Color.fromARGB(255, 248, 30, 67),
-                    ),
-                  ),
-                  Positioned(
-                    top: 512,
-                    child: Container(
-                      width: 395,
-                      height: 1,
-                      color: const Color.fromARGB(255, 248, 30, 67),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 23,
-                    top: 532,
-                    child: Text(
-                      'Name',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const Positioned(
-                    left: 118,
-                    top: 364,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.star,
-                          size: 23,
-                          color: Colors.pink,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 23,
-                          color: Colors.pink,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 23,
-                          color: Colors.pink,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 23,
-                          color: Colors.pink,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 23,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Positioned(
-                    left: 240,
-                    top: 532,
-                    child: SizedBox(
-                      width: 119,
-                      height: 163,
-                      child: Icon(
-                        Icons.qr_code,
-                        size: 119,
-                        color: Colors.black,
+                        fontFamily: "Raleway",
+                        fontSize: width * 0.04,
+                        fontStyle: FontStyle.normal,
+                        //fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
-        ),
+
+              SizedBox(height: 10),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Date & Time',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Raleway",
+                      fontSize: width * 0.04,
+                      fontStyle: FontStyle.normal,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      ticket.time,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: "Raleway",
+                        fontSize: width * 0.04,
+                        fontStyle: FontStyle.normal,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 10),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Seat(s)',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Raleway",
+                      fontSize: width * 0.04,
+                      fontStyle: FontStyle.normal,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      ticket.seats.join(", "),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: "Raleway",
+                        fontSize: width * 0.04,
+                        fontStyle: FontStyle.normal,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              //SizedBox(height: 10),
+
+              Container(
+                //color: Colors.blue,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: "Raleway",
+                              fontSize: width * 0.04,
+                              fontStyle: FontStyle.normal,
+                              //fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            Provider.of<UserData>(context).data!.nama!,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: "Raleway",
+                              fontSize: width * 0.04,
+                              fontStyle: FontStyle.normal,
+                              //fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          SizedBox(height: 20),
+
+                          Text(
+                            'Price',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: "Raleway",
+                              fontSize: width * 0.04,
+                              fontStyle: FontStyle.normal,
+                              //fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "Rp. ${NumberFormat("#,##0", "id_ID").format(ticket.harga)}",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: "Raleway",
+                              fontSize: width * 0.04,
+                              fontStyle: FontStyle.normal,
+                              //fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    ),
+                    Icon(
+                      Icons.qr_code_2_sharp,
+                      size: width * 0.4,
+                    ),
+                    // Container(
+                    //   //color: Colors.blue,
+                    //   alignment: Alignment.centerRight,
+                    //   child: Icon(
+                    //     Icons.qr_code_2_sharp,
+                    //     size: width * 0.4,
+                    //   ),
+                    // )
+                  ],
+                ),
+              ),
+
+              //SizedBox(height: 10),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Order ID',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: "Raleway",
+                      fontSize: width * 0.04,
+                      fontStyle: FontStyle.normal,
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      ticket.id,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: "Raleway",
+                        fontSize: width * 0.04,
+                        fontStyle: FontStyle.normal,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
       ),
     );
   }
