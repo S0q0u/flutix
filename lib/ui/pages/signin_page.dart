@@ -199,39 +199,73 @@ class _SignInState extends State<SignIn> {
                   //   // ),
 
                   // ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, top: 20),
-                        child: Text(
-                          "Continue to Sign In",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                          ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Padding(
+                  //       padding: EdgeInsets.only(left: 20, top: 20),
+                  //       child: Text(
+                  //         "Continue to Sign In",
+                  //         style: GoogleFonts.raleway(
+                  //           color: Colors.black,
+                  //           fontSize: 18,
+                  //           fontWeight: FontWeight.normal,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Padding(
+                  //       padding: const EdgeInsets.only(right: 25),
+                  //       child: FloatingActionButton(
+                  //         onPressed: () {
+                  //           handleSubmit();
+                  //         },
+                  //         mini: true,
+                  //         child: const Icon(
+                  //           Icons.arrow_forward,
+                  //           color: Colors.white,
+                  //         ),
+                  //         backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                  //         shape: const CircleBorder(),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                            child: Text(
+                              'Continue to Sign In',
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            )
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 25),
-                        child: FloatingActionButton(
-                          onPressed: () {
-                            handleSubmit();
-                          },
-                          mini: true,
-                          child: const Icon(
-                            Icons.arrow_forward,
-                            color: Colors.white,
+                        Container(
+                          child: FloatingActionButton(
+                            onPressed: () {
+                              handleSubmit();
+                            },
+                            mini: true,
+                            child: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                            ),
+                            backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                            shape: const CircleBorder(),
                           ),
-                          backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
-                          shape: const CircleBorder(),
-                        ),
-                      ),
-                    ],
+                        )
+                      ],
+                    ),
                   ),
 
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 40),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(

@@ -58,13 +58,15 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Create Your \nAccount",
+          "Create Your Account",
           style: TextStyle(
             fontFamily: 'Raleway',
             color: Colors.black,
             //fontSize: 15,
           ),
         ),
+        centerTitle: true,
+        shadowColor: Colors.transparent,
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(),
         automaticallyImplyLeading: true,
@@ -115,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(23, 0, 23, 0),
+                  //padding: const EdgeInsets.fromLTRB(23, 0, 23, 0),
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -278,39 +280,74 @@ class _SignUpState extends State<SignUp> {
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 20, top: 20),
-                            child: Text(
-                              "Continue to Sign Up",
-                              style: GoogleFonts.raleway(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal,
-                              ),
+
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Padding(
+                      //       padding: EdgeInsets.only(left: 20, top: 20),
+                      //       child: Text(
+                      //         "Continue to Sign Up",
+                      //         style: GoogleFonts.raleway(
+                      //           color: Colors.black,
+                      //           fontSize: 18,
+                      //           fontWeight: FontWeight.normal,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     Padding(
+                      //       padding: const EdgeInsets.only(right: 25),
+                      //       child: FloatingActionButton(
+                      //         onPressed: () {
+                      //           handleSubmit();
+                      //         },
+                      //         mini: true,
+                      //         child: const Icon(
+                      //           Icons.arrow_forward,
+                      //           color: Colors.white,
+                      //         ),
+                      //         backgroundColor:
+                      //             const Color.fromRGBO(34, 35, 53, 1),
+                      //         shape: const CircleBorder(),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(height: 20),
+
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                                child: Text(
+                                  'Continue to Sign Up',
+                                  style: TextStyle(
+                                      fontFamily: 'Raleway',
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                )
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 25),
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                handleSubmit();
-                              },
-                              mini: true,
-                              child: const Icon(
-                                Icons.arrow_forward,
-                                color: Colors.white,
+                            Container(
+                              child: FloatingActionButton(
+                                onPressed: () {
+                                  handleSubmit();
+                                },
+                                mini: true,
+                                child: const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                ),
+                                backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                                shape: const CircleBorder(),
                               ),
-                              backgroundColor:
-                                  const Color.fromRGBO(34, 35, 53, 1),
-                              shape: const CircleBorder(),
-                            ),
-                          ),
-                        ],
+                            )
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 20),
                     ],
                   ),
                 ),

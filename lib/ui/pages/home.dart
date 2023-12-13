@@ -84,6 +84,7 @@ class HomeAppBarTitle extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(50)),
             image: DecorationImage(
               image: NetworkImage(userData.data!.profile!),
+              fit: BoxFit.cover,
             )
           )
         ),
