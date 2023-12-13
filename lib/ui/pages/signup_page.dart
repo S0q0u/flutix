@@ -38,6 +38,19 @@ class _SignUpState extends State<SignUp> {
   // bool textFieldEmptyPassword = false;
   // bool textFieldEmptyNama = false;
 
+  Future<void> _browseFile() async {
+    final ImagePicker _picker = ImagePicker();
+    XFile? image = await _picker.pickImage(
+        source: ImageSource
+            .gallery); // Ubah ke ImageSource.camera jika ingin menggunakan kamera
+
+    if (image != null) {
+      setState(() {
+        imagePath = image.path;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -86,7 +99,7 @@ class _SignUpState extends State<SignUp> {
                       right: 0,
                       child: GestureDetector(
                         onTap: () {
-                          // Implement code to browse image
+                          _browseFile();
                         },
                         child: const CircleAvatar(
                           radius: 15,
@@ -290,7 +303,8 @@ class _SignUpState extends State<SignUp> {
                                 Icons.arrow_forward,
                                 color: Colors.white,
                               ),
-                              backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                              backgroundColor:
+                                  const Color.fromRGBO(34, 35, 53, 1),
                               shape: const CircleBorder(),
                             ),
                           ),
