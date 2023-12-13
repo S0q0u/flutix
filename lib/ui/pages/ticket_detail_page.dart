@@ -6,15 +6,17 @@ class TicketDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF12302F),
+        scaffoldBackgroundColor: const Color.fromRGBO(34, 35, 53, 1),
       ),
       home: Scaffold(
         body: ListView(
           children: [
             Container(
-              width: 393,
+              width: width,
               height: 758,
               clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(
@@ -31,12 +33,14 @@ class TicketDetailPage extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    width: 393,
-                    height: 257.49,
+                    width: 390,
+                    height: 255,
+                    // width: width,
+                    // height: height * 0.8,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(ticket.film.backdropUrl!),
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                       border: const Border(
                         bottom: BorderSide(
@@ -83,11 +87,11 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    left: 284,
+                    left: 244,
                     top: 412,
                     child: Text(
                       ticket.cinema,
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.left,
                       style: const TextStyle(
                         color: Color.fromARGB(255, 248, 30, 67),
                         fontSize: 13,
@@ -128,6 +132,18 @@ class TicketDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Positioned(
+                    left: 260,
+                    top: 466,
+                    child: Text(
+                      ticket.seats.join(", "),
+                      textAlign: TextAlign.right,
+                      style: const TextStyle(
+                        color: Color.fromARGB(255, 248, 30, 67),
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
                   const Positioned(
                     left: 23,
                     top: 532,
@@ -147,7 +163,7 @@ class TicketDetailPage extends StatelessWidget {
                       Provider.of<UserData>(context).data!.nama!,
                       // ignore: prefer_const_constructors
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 13,
                       ),
                     ),
@@ -170,7 +186,7 @@ class TicketDetailPage extends StatelessWidget {
                     child: Text(
                       "Rp. ${NumberFormat("#,##0", "id_ID").format(ticket.harga)}",
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 13,
                       ),
                     ),
@@ -192,19 +208,7 @@ class TicketDetailPage extends StatelessWidget {
                     child: Text(
                       ticket.id,
                       style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 260,
-                    top: 466,
-                    child: Text(
-                      ticket.seats.join(", "),
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
+                        color: Colors.black,
                         fontSize: 13,
                       ),
                     ),
@@ -230,7 +234,7 @@ class TicketDetailPage extends StatelessWidget {
                         Text(
                           ticket.film.genres!.join(", "),
                           style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 13,
                           ),
                         ),
@@ -298,7 +302,7 @@ class TicketDetailPage extends StatelessWidget {
                         Icon(
                           Icons.star,
                           size: 23,
-                          color: Colors.pinkAccent,
+                          color: Colors.pink,
                         ),
                         Icon(
                           Icons.star,
@@ -314,7 +318,7 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                   ),
                   const Positioned(
-                    left: 227,
+                    left: 240,
                     top: 532,
                     child: SizedBox(
                       width: 119,
@@ -322,7 +326,7 @@ class TicketDetailPage extends StatelessWidget {
                       child: Icon(
                         Icons.qr_code,
                         size: 119,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),

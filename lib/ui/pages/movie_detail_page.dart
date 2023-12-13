@@ -44,7 +44,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   margin: const EdgeInsets.only(top: 25, left: 10),
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromRGBO(253,1,120, 0.5),
+                    color: Color.fromRGBO(253, 1, 120, 0.5),
                   ),
                   width: 40,
                   height: 40,
@@ -61,7 +61,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               ),
             ],
           ),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -72,8 +71,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   style: TextStyle(
                     color: Colors.black,
                     fontFamily: "Raleway",
-                    //fontSize: 30,
+                    // fontSize: 30,
                     fontSize: width * 0.08,
+                    // fontSize: width * 0.018,
                     fontStyle: FontStyle.normal,
                     fontWeight: FontWeight.bold,
                   ),
@@ -97,8 +97,10 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     for (int i = 0; i < 5; i++)
                       Icon(
                         Icons.star,
-                        color: i < (widget.film.rating ?? 0).round()? Colors.yellow : Colors.grey,
-                            // ? Color.fromARGB(255, 248, 30, 67)
+                        color: i < (widget.film.rating ?? 0).round()
+                            ? Colors.yellow
+                            : Colors.grey,
+                        // ? Color.fromARGB(255, 248, 30, 67)
                       ),
                     Text(
                       '\t\t${(widget.film.rating ?? 0).round()}',
@@ -109,21 +111,18 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     ),
                   ],
                 ),
-
                 Container(
-                  margin: const EdgeInsets.only(top: 15, bottom: 15),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Storyline',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Raleway',
-                      fontSize: width * 0.05,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ),
-
+                    margin: const EdgeInsets.only(top: 15, bottom: 15),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Storyline',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Raleway',
+                        fontSize: width * 0.05,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
                 Text(
                   desc,
                   style: TextStyle(
@@ -134,7 +133,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   ),
                   textAlign: TextAlign.justify,
                 ),
-
                 Container(
                     margin: const EdgeInsets.only(top: 15, bottom: 15),
                     alignment: Alignment.centerLeft,
@@ -146,12 +144,10 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                         fontSize: width * 0.05,
                         fontWeight: FontWeight.bold,
                       ),
-                    )
-                ),
+                    )),
               ],
             ),
           ),
-
           FutureBuilder<List<Cast>>(
             future: Api.getCastList(widget.film.id.toString()),
             builder: (context, snapshot) {
@@ -183,7 +179,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               }
             },
           ),
-
           Container(
             margin: const EdgeInsets.only(left: 5, right: 5),
             padding: const EdgeInsets.all(8.0),
@@ -196,8 +191,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  backgroundColor: const Color.fromRGBO(253,1,120, 1),
-                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
+                  backgroundColor: const Color.fromRGBO(253, 1, 120, 1),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
                 ),
                 onPressed: () {
                   Provider.of<TicketData>(context, listen: false).ticket!.film =
@@ -245,11 +241,11 @@ class CastCard extends StatelessWidget {
             height: 80,
             child: cast.picture != null
                 ? ClipOval(
-              child: Image.network(
-                cast.picture!,
-                fit: BoxFit.cover,
-              ),
-            )
+                    child: Image.network(
+                      cast.picture!,
+                      fit: BoxFit.cover,
+                    ),
+                  )
                 : Icon(Icons.person_3_rounded),
           ),
           Container(
@@ -268,6 +264,5 @@ class CastCard extends StatelessWidget {
         ],
       ),
     );
-
   }
 }

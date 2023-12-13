@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         //backgroundColor: const Color.fromARGB(255, 22, 23, 35),
-        backgroundColor: Color.fromRGBO(34, 35, 53, 1),
+        backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
         unselectedItemColor: Colors.white,
         selectedItemColor: const Color.fromARGB(255, 248, 30, 67),
         currentIndex: _index,
@@ -87,7 +87,7 @@ class HomeAppBarTitle extends StatelessWidget {
             )
           )
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           child: Row(
             children: [

@@ -3,8 +3,13 @@ part of './services.dart';
 class Auth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<Map<String, dynamic>> regis(String email, String password) async {
+  Future<Map<String, dynamic>> regis(
+      String email, String password, String confPass) async {
     try {
+      if (password != confPass) {
+        throw 'Password dan confirm password tidak sesuai';
+      }
+
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -17,7 +22,12 @@ class Auth {
       return {'success': true, 'userId': userId};
     } catch (e) {
       // Return a map with 'success' key set to false
-      return {'success': false};
+      // return {'success': false};
+      if (e is FirebaseAuthException && e.code == 'email-already-in-use') {
+        throw 'Email sudah digunakan.';
+      } else {
+        return {'success': false};
+      }
     }
   }
 

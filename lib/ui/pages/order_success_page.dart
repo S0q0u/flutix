@@ -9,7 +9,7 @@ class OrderSuccessPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Ticket ticket = Provider.of<TicketData>(context).ticket!;
     return Scaffold(
-      backgroundColor: Color(0xFF393E46),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,7 +28,7 @@ class OrderSuccessPage extends StatelessWidget {
               width: 200,
               height: 300,
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 248, 30, 67),
+                color: Colors.white70,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Stack(
@@ -46,7 +46,7 @@ class OrderSuccessPage extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 30, // Geser teks ke atas sejauh 20px
+                    bottom: 30, // Geser teks ke atas sejauh
                     left: 0,
                     right: 0,
                     child: Text(
@@ -87,7 +87,7 @@ class OrderSuccessPage extends StatelessWidget {
                 child: Text(
                   'My Ticket',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontFamily: 'Raleway',
                     fontSize: 16,
                     fontWeight: FontWeight.w900,
@@ -105,10 +105,11 @@ class OrderSuccessPage extends StatelessWidget {
                 ));
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF393E46),
+                backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
-                  side: BorderSide(color: const Color.fromARGB(255, 248, 30, 67), width: 1),
+                  side: BorderSide(
+                      color: const Color.fromARGB(255, 248, 30, 67), width: 1),
                 ),
               ),
               child: Container(

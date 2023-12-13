@@ -31,18 +31,20 @@ class _TicketPageState extends State<TicketPage> {
     return Column(
       children: [
         Expanded(
-            child: isUsedButtonActive
-                ? TicketList(
-                    userData: userData,
-                    screenSize: screenSize,
-                    controller: _scrollController)
-                : TicketList(
-                    userData: userData,
-                    screenSize: screenSize,
-                    controller: _scrollController)),
+          child: isUsedButtonActive
+              ? TicketList(
+                  userData: userData,
+                  screenSize: screenSize,
+                  controller: _scrollController)
+              : TicketList(
+                  userData: userData,
+                  screenSize: screenSize,
+                  controller: _scrollController),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const Spacer(),
             ElevatedButton(
               onPressed: () {
                 if (!isUsedButtonActive) {
@@ -66,6 +68,7 @@ class _TicketPageState extends State<TicketPage> {
                 ),
               ),
             ),
+            const Spacer(),
             ElevatedButton(
               onPressed: () {
                 if (isUsedButtonActive) {
@@ -89,6 +92,7 @@ class _TicketPageState extends State<TicketPage> {
                 ),
               ),
             ),
+            const Spacer(),
           ],
         ),
       ],

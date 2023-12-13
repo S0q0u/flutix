@@ -51,7 +51,7 @@ class _SignInState extends State<SignIn> {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30),
                           child: Text(
-                            'Welcome Back, Explorer!',
+                            'Welcome Back, \nExplorer!',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
@@ -159,45 +159,71 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   const SizedBox(
-                    height: 50,
+                    height: 10,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      handleSubmit();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(330, 40),
-                    ).merge(
-                      ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.pressed)) {
-                              isButtonPressed = true;
-                              return const Color.fromARGB(255, 248, 30, 67);
-                            } else {
-                              isButtonPressed = false;
-                              return const Color.fromARGB(255, 238, 51, 82);
-                            }
-                          },
+                  // IconButton(
+                  //   onPressed: () {
+                  //     handleSubmit();
+                  //   },
+                  //   icon: const Icon(
+                  //     Icons.arrow_circle_right,
+                  //     size: 60,
+                  //   ),
+                  //   // style: ElevatedButton.styleFrom(
+                  //   //   fixedSize: const Size(330, 40),
+                  //   // ).merge(
+                  //   //   ButtonStyle(
+                  //   //     backgroundColor:
+                  //   //         MaterialStateProperty.resolveWith<Color>(
+                  //   //       (Set<MaterialState> states) {
+                  //   //         if (states.contains(MaterialState.pressed)) {
+                  //   //           isButtonPressed = true;
+                  //   //           return const Color.fromARGB(255, 248, 30, 67);
+                  //   //         } else {
+                  //   //           isButtonPressed = false;
+                  //   //           return const Color.fromARGB(255, 238, 51, 82);
+                  //   //         }
+                  //   //       },
+                  //   //     ),
+                  //   //   ),
+                  //   // ),
+                  //   // child: const Text(
+                  //   //   'Sign In',
+                  //   //   style: TextStyle(
+                  //   //     fontFamily: 'Raleway',
+                  //   //     fontSize: 16,
+                  //   //     fontWeight: FontWeight.w700,
+                  //   //     height: 1.175,
+                  //   //     color: Colors.white,
+                  //   //   ),
+                  //   // ),
+
+                  // ),
+                  Row(
+                    children: [
+                      const SizedBox(width: 25),
+                      const Expanded(
+                        child: Text(
+                          'Continue to Sign In',
+                          style: TextStyle(fontSize: 20),
                         ),
                       ),
-                    ),
-                    child: const Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontFamily: 'Raleway',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        height: 1.175,
-                        color: Colors.white,
+                      IconButton(
+                        onPressed: () {
+                          handleSubmit();
+                        },
+                        icon: const Icon(
+                          Icons.arrow_circle_right,
+                          size: 60,
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                  const SizedBox(height: 8),
+
+                  const SizedBox(height: 50),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const SignUp()),
                       );
