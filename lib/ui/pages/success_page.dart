@@ -12,9 +12,7 @@ class SuccessPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Text(
+            Text(
                 'Your account preference has \n been saved!',
                 style: GoogleFonts.raleway(
                   color: Color.fromARGB(255, 248, 30, 67),
@@ -22,44 +20,41 @@ class SuccessPage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-            ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 70),
             Container(
-              width: 200,
-              height: 200,
+              width: 150,
+              height: 150,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: const Color.fromARGB(255, 248, 30, 67),
                   width: 5,
                 ),
-                image: DecorationImage(
-                  image: userData.data!.profile != ""
-                      ? NetworkImage(userData.data!.profile!)
-                      : const AssetImage('assets/Profile.png')
-                          as ImageProvider<Object>,
-                  fit: BoxFit.cover,
-                ),
+                // image: DecorationImage(
+                //   image: userData.data!.profile != ""
+                //       ? NetworkImage(userData.data!.profile!)
+                //       : const AssetImage('assets/Profile.png')
+                //           as ImageProvider<Object>,
+                //   fit: BoxFit.cover,
+                // ),
               ),
             ),
             const SizedBox(height: 80),
-            const Text(
-              'Welcome,',
-              style: TextStyle(
-                color: Color.fromARGB(255, 248, 30, 67),
-                fontFamily: 'Raleway',
-                fontSize: 24,
-              ),
-            ),
             Text(
-              userData.data!.nama!,
-              style: const TextStyle(
-                color: Colors.black,
-                fontFamily: 'Raleway',
-                fontSize: 24,
-              ),
+              'Welcome,',
+              style: GoogleFonts.raleway(
+                  color: Color.fromARGB(255, 248, 30, 67),
+                  fontSize: 25,
+                ),
             ),
-            const SizedBox(height: 70),
+            // Text(
+            //   userData.data!.nama!,
+            //   style: GoogleFonts.raleway(
+                //   color: Colors.black,
+                //   fontSize: 24,
+                // ),
+            // ),
+            const SizedBox(height: 90),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -79,13 +74,12 @@ class SuccessPage extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 alignment: Alignment.center,
-                child: const Text(
+                child: Text(
                   'Confirm',
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Colors.white,
-                    fontFamily: 'Raleway',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w900,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold
                   ),
                 ),
               ),
@@ -113,13 +107,12 @@ class SuccessPage extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 alignment: Alignment.center,
-                child: const Text(
+                child: Text(
                   'Back',
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Color.fromARGB(255, 248, 30, 67),
-                    fontFamily: 'Raleway',
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold
                   ),
                 ),
               ),
