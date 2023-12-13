@@ -144,14 +144,44 @@ class _MyWalletPageState extends State<MyWalletPage> {
             margin: const EdgeInsets.all(20),
             child: ElevatedButton(
               onPressed: () async {
-                await userData.updateField("wallet",
-                    userData.data!.wallet! + amounts[selectedTopUpIndex!]);
-                if (!context.mounted) return;
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return const TopUpSuccessPage();
-                  },
-                ));
+                try {
+                  await userData.updateField(
+                    "wallet",
+                    userData.data!.wallet! + amounts[selectedTopUpIndex!],
+                  );
+                  if (!context.mounted) return;
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) {
+                      return const TopUpSuccessPage();
+                    },
+                  ));
+                } catch (e) {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('Top Up Error'),
+                        content: Text(e.toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+                // await userData.updateField("wallet",
+                //     userData.data!.wallet! + amounts[selectedTopUpIndex!]);
+                // if (!context.mounted) return;
+                // Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (context) {
+                //     return const TopUpSuccessPage();
+                //   },
+                // ));
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -166,11 +196,9 @@ class _MyWalletPageState extends State<MyWalletPage> {
                   ),
                 ),
               ),
-              child: Container(
-                //width: 270,
-                padding: const EdgeInsets.all(8),
-                alignment: Alignment.center,
-                child: const Text(
+              child: const Padding(
+                padding: EdgeInsets.all(8),
+                child: Text(
                   'Confirm Top-Up',
                   style: TextStyle(
                     // color: Color(0xFF393E46),

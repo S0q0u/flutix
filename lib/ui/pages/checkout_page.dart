@@ -199,7 +199,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   ),
                                 ),
                                 Text(
-                                  '${ticketData.ticket!.seats.length}x200,000',
+                                  '${ticketData.ticket!.seats.length}x50,000',
                                   style: const TextStyle(
                                     color: Color(0xFFFD0178),
                                     fontFamily: 'Raleway',
