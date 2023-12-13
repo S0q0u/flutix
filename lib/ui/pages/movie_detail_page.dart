@@ -100,6 +100,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                         color: i < (widget.film.rating ?? 0).round()
                             ? Colors.yellow
                             : Colors.grey,
+                        size: width * 0.04,
                         // ? Color.fromARGB(255, 248, 30, 67)
                       ),
                     Text(

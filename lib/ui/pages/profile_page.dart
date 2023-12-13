@@ -6,6 +6,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserData userData = Provider.of<UserData>(context, listen: false);
+    double width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Expanded(
@@ -15,38 +16,71 @@ class ProfilePage extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 margin: const EdgeInsets.only(bottom: 10, top: 10),
-                child: Stack(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color.fromARGB(255, 248, 30, 67),
-                      ),
-                      child: CircleAvatar(
+                child: Expanded(
+                  child: Column(
+                    children: [
+                      Container(
+                        //padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 248, 30, 67),
+                        ),
+                        child: CircleAvatar(
+                            //radius: width * 0.2,
                           radius: 80,
-                          backgroundColor: Colors.white,
-                          backgroundImage:
-                              NetworkImage(userData.data!.profile!)),
-                    ),
-                    const SizedBox(height: 200),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Text(
+                            backgroundColor: Colors.white,
+                            backgroundImage:
+                            NetworkImage(userData.data!.profile!)),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
                         userData.data!.nama!,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'Raleway',
-                          fontSize: 20,
+                          fontSize: 18,
+                          //fontSize: width * 0.08,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
                         textAlign: TextAlign.center,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+
+                // child: Stack(
+                //   children: [
+                //     Container(
+                //       padding: const EdgeInsets.all(4),
+                //       decoration: const BoxDecoration(
+                //         shape: BoxShape.circle,
+                //         color: Color.fromARGB(255, 248, 30, 67),
+                //       ),
+                //       child: CircleAvatar(
+                //           radius: 80,
+                //           backgroundColor: Colors.white,
+                //           backgroundImage:
+                //               NetworkImage(userData.data!.profile!)),
+                //     ),
+                //     const SizedBox(height: 200),
+                //     Positioned(
+                //       bottom: 0,
+                //       left: 0,
+                //       right: 0,
+                //       child: Text(
+                //         userData.data!.nama!,
+                //         style: TextStyle(
+                //           fontFamily: 'Raleway',
+                //           //fontSize: 20,
+                //           fontSize: width * 0.08,
+                //           fontWeight: FontWeight.w500,
+                //           color: Colors.black,
+                //         ),
+                //         textAlign: TextAlign.center,
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ),
             ],
           ),
