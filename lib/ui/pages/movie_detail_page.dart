@@ -103,7 +103,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                         // ? Color.fromARGB(255, 248, 30, 67)
                       ),
                     Text(
-                      '\t\t${(widget.film.rating ?? 0).round()}',
+                      '\t\t${(widget.film.rating ?? 0).round()}/5',
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: width * 0.05,

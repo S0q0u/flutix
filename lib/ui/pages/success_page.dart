@@ -33,6 +33,13 @@ class SuccessPage extends StatelessWidget {
                     color: const Color.fromARGB(255, 248, 30, 67),
                     width: 5,
                   ),
+                  image: DecorationImage(
+                    image: userData.data!.profile != ""
+                        ? NetworkImage(userData.data!.profile!)
+                        : const AssetImage('assets/Profile.png')
+                    as ImageProvider<Object>,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: 50),
