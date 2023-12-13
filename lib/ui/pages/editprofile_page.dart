@@ -226,7 +226,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   onPressed: () async {
                     if (_passwordController.text.isEmpty) {
-                      await userData.updateField("nama", _nameController.text);
+                      await userData.updateFieldName("nama", _nameController.text);
                       if (imagePath != "") {
                         await userData.updateField("profile", imagePath);
                       }

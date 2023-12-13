@@ -43,7 +43,7 @@ class UserData extends ChangeNotifier {
     }
   }
 
-  Future<void> updateField(String fieldName, dynamic newValue) async {
+  Future<void> updateFieldName(String fieldName, dynamic newValue) async {
     try {
       // Reference to the document you want to update
       DocumentReference documentReference =
@@ -60,7 +60,7 @@ class UserData extends ChangeNotifier {
     }
   }
 
-  Future<void> updateFieldwallet(String fieldName, dynamic newValue) async {
+  Future<void> updateField(String fieldName, dynamic newValue) async {
     try {
       // Reference to the document you want to update
       DocumentReference documentReference =
