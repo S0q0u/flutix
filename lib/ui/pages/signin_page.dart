@@ -200,22 +200,32 @@ class _SignInState extends State<SignIn> {
 
                   // ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const SizedBox(width: 25),
-                      const Expanded(
+                      Padding(
+                        padding: EdgeInsets.only(left: 20, top: 20),
                         child: Text(
-                          'Continue to Sign In',
-                          style: TextStyle(fontSize: 20),
+                          "Continue to Sign In",
+                          style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          handleSubmit();
-                        },
-                        icon: const Icon(
-                          Icons.arrow_circle_right,
-                          size: 60,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 25),
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            handleSubmit();
+                          },
+                          mini: true,
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          ),
+                          backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                          shape: const CircleBorder(),
                         ),
                       ),
                     ],

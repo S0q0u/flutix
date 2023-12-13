@@ -12,16 +12,18 @@ class SuccessPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Your account preferance has \n been saved!',
-              style: TextStyle(
-                color: Color.fromARGB(255, 248, 30, 67),
-                fontFamily: 'Raleway',
-                fontSize: 26,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Text(
+                'Your account preference has \n been saved!',
+                style: GoogleFonts.raleway(
+                  color: Color.fromARGB(255, 248, 30, 67),
+                  fontSize: 25,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 80),
+            const SizedBox(height: 30),
             Container(
               width: 200,
               height: 200,
@@ -52,7 +54,7 @@ class SuccessPage extends StatelessWidget {
             Text(
               userData.data!.nama!,
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontFamily: 'Raleway',
                 fontSize: 24,
               ),
@@ -80,7 +82,7 @@ class SuccessPage extends StatelessWidget {
                 child: const Text(
                   'Confirm',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontFamily: 'Raleway',
                     fontSize: 16,
                     fontWeight: FontWeight.w900,

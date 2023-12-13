@@ -142,8 +142,8 @@ class _UserProfileState extends State<UserProfile> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
+        // shadowColor: Colors.transparent,
+         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Column(

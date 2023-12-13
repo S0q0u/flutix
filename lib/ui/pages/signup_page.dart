@@ -52,7 +52,8 @@ class _SignUpState extends State<SignUp> {
             //fontSize: 15,
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(),
         automaticallyImplyLeading: true,
       ),
       // backgroundColor: const Color(0xff393e46),
@@ -265,27 +266,37 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const SizedBox(width: 25),
-                          const Expanded(
+                          Padding(
+                            padding: EdgeInsets.only(left: 20, top: 20),
                             child: Text(
-                              'Continue to Sign Up',
-                              style: TextStyle(fontSize: 20),
+                              "Continue to Sign Up",
+                              style: GoogleFonts.raleway(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.normal,
+                              ),
                             ),
                           ),
-                          IconButton(
-                            onPressed: () {
-                              handleSubmit();
-                            },
-                            icon: const Icon(
-                              Icons.arrow_circle_right,
-                              size: 50,
-                              color: Color.fromRGBO(34, 35, 53, 1),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 25),
+                            child: FloatingActionButton(
+                              onPressed: () {
+                                handleSubmit();
+                              },
+                              mini: true,
+                              child: const Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                              ),
+                              backgroundColor: const Color.fromRGBO(34, 35, 53, 1),
+                              shape: const CircleBorder(),
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
