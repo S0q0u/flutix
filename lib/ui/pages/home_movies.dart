@@ -295,28 +295,62 @@ class _MoviesState extends State<Movies> {
             },
           ),
         ),
-
         Container(
-          margin: const EdgeInsets.only(top: 25),
           width: width,
-          height: width * 9 / 16,
-          color: Colors.transparent,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 4,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                alignment: Alignment.center,
-                width: width,
-                height: width * 9 / 16,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/picture$index.png.jpg"),
-                        fit: BoxFit.cover)),
-              );
-            },
+          margin: const EdgeInsets.only(top: 25, bottom: 10, left: 10),
+          alignment: Alignment.topLeft,
+          child: const Headtitle(
+            text: "Promo",
+            size: 18.0,
           ),
         ),
+
+
+
+        Container(
+          margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+          width: width,
+          height: 100,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+            image: AssetImage("assets/promo1.png"),
+            fit: BoxFit.fill
+            )
+          ),
+        ),
+
+        Container(
+          margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+          width: width,
+          height: 100,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/promo1.png"),
+                  fit: BoxFit.fill
+              )
+          ),
+        ),
+
+        // Container(
+        //   width: width,
+        //   height: width * 9 / 16,
+        //   color: Colors.transparent,
+        //   child: ListView.builder(
+        //     scrollDirection: Axis.horizontal,
+        //     itemCount: 4,
+        //     itemBuilder: (BuildContext context, int index) {
+        //       return Container(
+        //         alignment: Alignment.center,
+        //         width: width,
+        //         height: width * 9 / 16,
+        //         decoration: BoxDecoration(
+        //             image: DecorationImage(
+        //                 image: AssetImage("assets/picture$index.png.jpg"),
+        //                 fit: BoxFit.cover)),
+        //       );
+        //     },
+        //   ),
+        // ),
       ],
     );
   }
