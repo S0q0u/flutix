@@ -28,7 +28,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     UserData userData = Provider.of<UserData>(context, listen: false);
-
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: selectedTheme.primaryColor,
@@ -46,255 +46,224 @@ class _EditProfilePageState extends State<EditProfilePage> {
         ),
       ),
       //backgroundColor: const Color(0xFF393E46),
-      body: Center(
-        child: ListView(
-          children: [
-            Column(
-              children: [
-
-                const SizedBox(height: 70),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextFormField(
-                    controller: _nameController,
-                    decoration: InputDecoration(
-                      hintText: "Input Username",
-                      labelText: "Username",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelStyle: const TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 22.0,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  (imagePath.isNotEmpty)
+                      ? Container(
+                    //margin: EdgeInsets.only(left: 20),
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: NetworkImage(imagePath),
+                        fit: BoxFit.cover,
                       ),
-                      hintStyle: const TextStyle(
-                          color: Color(0xFFFFFFFF), fontSize: 16.0),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 248, 30, 67),
-                        ),
+                      border: Border.all(
+                        color: const Color.fromRGBO(253,1,120, 1),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 248, 30, 67),
-                        ), // Mengubah warna border saat dalam fokus
-                      ),
+                      //borderRadius: BorderRadius.circular(70),
                     ),
-                    style: const TextStyle(color: Colors.black),
-                    onChanged: (String value) {},
-                  ),
-                ),
-                const SizedBox(height: 50),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextFormField(
-                    controller: _passwordController,
-                    obscureText: _isPasswordHidden,
-                    decoration: InputDecoration(
-                      hintText: "Input New Password",
-                      labelText: "Password",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      labelStyle: const TextStyle(
-                        color: Color.fromARGB(255, 248, 30, 67),
-                        fontSize: 22.0,
+                  )
+                      : Container(
+                    //margin: EdgeInsets.only(left: 20),
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: NetworkImage(userData.data!.profile!),
+                        fit: BoxFit.cover,
                       ),
-                      hintStyle: const TextStyle(
-                          color: Color(0xFFFFFFFF), fontSize: 16.0),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 248, 30, 67),
-                        ),
+                      border: Border.all(
+                        color: const Color.fromRGBO(253,1,120, 1),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 248, 30, 67),
-                        ), // Mengubah warna border saat dalam fokus
-                      ),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _isPasswordHidden
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: const Color.fromARGB(255, 248, 30, 67),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isPasswordHidden = !_isPasswordHidden;
-                          });
-                        },
-                      ),
+                      //borderRadius: BorderRadius.circular(70),
                     ),
-                    style: const TextStyle(color: Colors.black),
-                    onChanged: (String value) {},
                   ),
-                ),
-                const SizedBox(height: 50),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    (imagePath.isNotEmpty)
-                        ? Padding(
-                            padding: const EdgeInsets.only(right: 56.0),
-                            child: Container(
-                              width: 120,
-                              height: 120,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(imagePath),
-                                    fit: BoxFit.cover),
-                                border: Border.all(
-                                  color: const Color.fromARGB(255, 248, 30, 67),
-                                ),
-                                borderRadius: BorderRadius.circular(
-                                    70), // Menjadikan container menjadi bulat
-                              ),
-                            ),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.only(right: 56.0),
-                            child: Container(
-                              width: 120,
-                              height: 120,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image:
-                                        NetworkImage(userData.data!.profile!),
-                                    fit: BoxFit.cover),
-                                border: Border.all(
-                                  color: const Color.fromARGB(255, 248, 30, 67),
-                                ),
-                                borderRadius: BorderRadius.circular(
-                                    70), // Menjadikan container menjadi bulat
-                              ),
-                            ),
-                          ),
-                    Column(
-                      children: [
-                        const Text(
-                          "Pick a Photo!",
-                          style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 13,
-                            color: Colors.black,
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () async {
-                            // Mengambil gambar dari galeri
-                            final ImagePicker _picker = ImagePicker();
-                            XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-
-                            if (image != null) {
-                              // Mendapatkan path gambar dari XFile
-                              // String imagePath = image.path;
-                              setState(() {
-                                imagePath = image.path;
-                              });
-
-                              // Meng-upload gambar dan mendapatkan URL gambar yang diunggah
-                              String imageUrl = await Auth().uploadImage(image);
-
-                              // Mengupdate field 'profile' di Firestore dengan URL gambar baru
-                              await Provider.of<UserData>(context, listen: false)
-                                  .updateField("profile", imageUrl);
-
-                              // Setelah sukses, perbarui state lokal jika diperlukan
-                              setState(() {
-                                // Jika ingin mengganti gambar lokal di aplikasi, gunakan line berikut
-                                // imagePath = imageUrl;
-                                uploadPressed = !uploadPressed;
-                              });
-                            }
-                          },
-                          style: OutlinedButton.styleFrom(
-                            backgroundColor: uploadPressed
-                                ? const Color.fromARGB(255, 238, 51, 82)
-                                : Color.fromRGBO(253,1,120, 1),
-                            foregroundColor:
-                                const Color.fromARGB(255, 238, 51, 82),
-                            side: BorderSide(
-                              width: 1,
-                              color: uploadPressed
-                                  ? const Color.fromARGB(255, 238, 51, 82)
-                                  : const Color.fromARGB(255, 248, 30, 67),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 10.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                          ),
-                          child: Text(
-                            'Upload',
-                            style: TextStyle(
-                                fontFamily: 'Raleway',
-                                color: uploadPressed
-                                    ? Colors.white
-                                    : Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 50),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: const Color.fromARGB(255, 238, 51, 82),
-                    backgroundColor: const Color.fromRGBO(253,1,120, 1),
-                    padding: const EdgeInsets.symmetric(horizontal: 138.0),
-                  ),
-                  // onPressed: () async {
-                  //   if (_passwordController.text.isEmpty) {
-                  //     await userData.updateFieldName("nama", _nameController.text);
-                  //     if (imagePath != "") {
-                  //       await userData.updateField("profile", imagePath);
-                  //     }
-                  //     if (!context.mounted) return;
-                  //     Navigator.of(context).pop();
-                  //   } else {
-                  //     await userData.updateField("nama", _nameController.text);
-                  //     if (imagePath != "") {
-                  //       await userData.updateField("profile", imagePath);
-                  //     }
-                  //     await userData.changePassword(_passwordController.text);
-                  //     if (!context.mounted) return;
-                  //     Navigator.of(context).pop();
-                  //   }
-                  // },
-                  onPressed: () async {
-                    await userData.updateFieldName("nama", _nameController.text);
-
-                    if (imagePath != "") {
-                      await userData.updateField("profile", imagePath);
-                    }
-
-                    if (_passwordController.text.isNotEmpty) {
-                      await userData.changePassword(_passwordController.text);
-                    }
-
-                    if (!context.mounted) return;
-                    Navigator.of(context).pop();
-                  },
-
-                  child: const Text(
-                    "Update",
+                  const SizedBox(height: 20),
+                  const Text(
+                    "Pick a Photo!",
                     style: TextStyle(
-                        fontFamily: 'Raleway',
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                      fontFamily: 'Raleway',
+                      fontSize: 13,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 15),
-              ],
+                  const SizedBox(height: 5),
+                  ElevatedButton(
+                    onPressed: () async {
+                      // Mengambil gambar dari galeri
+                      final ImagePicker _picker = ImagePicker();
+                      XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+                      if (image != null) {
+                        setState(() {
+                          imagePath = image.path;
+                        });
+
+                        String imageUrl = await Auth().uploadImage(image);
+
+                        await Provider.of<UserData>(context, listen: false)
+                            .updateImage("profile", imageUrl);
+
+                        setState(() {
+                          uploadPressed = !uploadPressed;
+                        });
+                      }
+                    },
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: uploadPressed
+                          ? const Color.fromRGBO(253,1,120, 1)
+                          : Color.fromRGBO(253, 1, 120, 1),
+                      foregroundColor: const Color.fromARGB(255, 238, 51, 82),
+                      side: BorderSide(
+                        width: 1,
+                        color: uploadPressed
+                            ? const Color.fromRGBO(253,1,120, 1)
+                            : const Color.fromRGBO(253,1,120, 1),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    child: Text(
+                      'Upload',
+                      style: TextStyle(
+                        fontFamily: 'Raleway',
+                        color: uploadPressed ? Colors.white : Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: TextFormField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                        hintText: "Input Username",
+                        labelText: "Username",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        labelStyle: const TextStyle(
+                          color: Color.fromRGBO(253,1,120, 1),
+                          fontSize: 22.0,
+                        ),
+                        hintStyle: const TextStyle(
+                            color: Color(0xFFFFFFFF), fontSize: 16.0),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromRGBO(253,1,120, 1),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromRGBO(253,1,120, 1),
+                          ), // Mengubah warna border saat dalam fokus
+                        ),
+                      ),
+                      style: const TextStyle(color: Colors.black),
+                      onChanged: (String value) {},
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      obscureText: _isPasswordHidden,
+                      decoration: InputDecoration(
+                        hintText: "Input New Password",
+                        labelText: "Password",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        labelStyle: const TextStyle(
+                          color: Color.fromRGBO(253,1,120, 1),
+                          fontSize: 22.0,
+                        ),
+                        hintStyle: const TextStyle(
+                            color: Color(0xFFFFFFFF), fontSize: 16.0),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromRGBO(253,1,120, 1),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromRGBO(253,1,120, 1),
+                          ), // Mengubah warna border saat dalam fokus
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _isPasswordHidden
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: const Color.fromRGBO(253,1,120, 1),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isPasswordHidden = !_isPasswordHidden;
+                            });
+                          },
+                        ),
+                      ),
+                      style: const TextStyle(color: Colors.black),
+                      onChanged: (String value) {},
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
+            )
+          ),
+
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20.0),
+            width: width,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: const Color.fromARGB(255, 238, 51, 82),
+                backgroundColor: const Color.fromRGBO(253,1,120, 1),
+              ),
+              onPressed: () async {
+                await userData.updateFieldName("nama", _nameController.text);
+
+                if (imagePath != "") {
+                  await userData.updateImage("profile", imagePath);
+                }
+
+                if (_passwordController.text.isNotEmpty) {
+                  await userData.changePassword(_passwordController.text);
+                }
+
+                if (!context.mounted) return;
+                Navigator.of(context).pop();
+              },
+
+              child: const Text(
+                "Update",
+                style: TextStyle(
+                    fontFamily: 'Raleway',
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 20),
+        ],
       ),
     );
   }

@@ -77,6 +77,23 @@ class UserData extends ChangeNotifier {
     }
   }
 
+  Future<void> updateImage(String fieldName, dynamic newValue) async {
+    try {
+      // Reference to the document you want to update
+      DocumentReference documentReference =
+      FirebaseFirestore.instance.collection('users').doc(id);
+
+      // Update the specified field with the new value
+      await documentReference.update({fieldName: newValue});
+      _data!.profile = newValue;
+
+      debugPrint('Document field updated successfully.');
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error updating document field: $e');
+    }
+  }
+
   Future<void> changePassword(String newPassword) async {
     final user = FirebaseAuth.instance.currentUser;
 

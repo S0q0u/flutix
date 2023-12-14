@@ -5,7 +5,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UserData userData = Provider.of<UserData>(context, listen: false);
+    UserData userData = Provider.of<UserData>(context, listen: true);
     double width = MediaQuery.of(context).size.width;
     return Column(
       children: [
@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        //padding: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(4),
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color.fromARGB(255, 248, 30, 67),
