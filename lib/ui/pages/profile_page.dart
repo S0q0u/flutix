@@ -23,19 +23,19 @@ class ProfilePage extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color.fromRGBO(253,1,120, 1),
+                          color: Color.fromRGBO(253, 1, 120, 1),
                         ),
                         child: CircleAvatar(
                             //radius: width * 0.2,
-                          radius: 80,
+                            radius: 80,
                             backgroundColor: Colors.white,
                             backgroundImage:
-                            NetworkImage(userData.data!.profile!)),
+                                NetworkImage(userData.data!.profile!)),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Text(
                         userData.data!.nama!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'Raleway',
                           fontSize: 18,
                           //fontSize: width * 0.08,
@@ -47,40 +47,6 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                // child: Stack(
-                //   children: [
-                //     Container(
-                //       padding: const EdgeInsets.all(4),
-                //       decoration: const BoxDecoration(
-                //         shape: BoxShape.circle,
-                //         color: Color.fromARGB(255, 248, 30, 67),
-                //       ),
-                //       child: CircleAvatar(
-                //           radius: 80,
-                //           backgroundColor: Colors.white,
-                //           backgroundImage:
-                //               NetworkImage(userData.data!.profile!)),
-                //     ),
-                //     const SizedBox(height: 200),
-                //     Positioned(
-                //       bottom: 0,
-                //       left: 0,
-                //       right: 0,
-                //       child: Text(
-                //         userData.data!.nama!,
-                //         style: TextStyle(
-                //           fontFamily: 'Raleway',
-                //           //fontSize: 20,
-                //           fontSize: width * 0.08,
-                //           fontWeight: FontWeight.w500,
-                //           color: Colors.black,
-                //         ),
-                //         textAlign: TextAlign.center,
-                //       ),
-                //     ),
-                //   ],
-                // ),
               ),
             ],
           ),
@@ -186,7 +152,7 @@ class MenuItem extends StatelessWidget {
               Icon(
                 icon,
                 size: 40,
-                color: const Color.fromRGBO(253,1,120, 1),
+                color: const Color.fromRGBO(253, 1, 120, 1),
               ),
               const SizedBox(width: 16),
               Text(
