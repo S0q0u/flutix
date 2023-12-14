@@ -23,7 +23,7 @@ class ProfilePage extends StatelessWidget {
                         padding: const EdgeInsets.all(4),
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color.fromARGB(255, 248, 30, 67),
+                          color: Color.fromRGBO(253,1,120, 1),
                         ),
                         child: CircleAvatar(
                             //radius: width * 0.2,
@@ -186,7 +186,7 @@ class MenuItem extends StatelessWidget {
               Icon(
                 icon,
                 size: 40,
-                color: const Color.fromARGB(255, 248, 30, 67),
+                color: const Color.fromRGBO(253,1,120, 1),
               ),
               const SizedBox(width: 16),
               Text(

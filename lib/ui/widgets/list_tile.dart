@@ -39,7 +39,7 @@ class TicketTileState extends State<TicketTile> {
           child: Text(
             widget.ticket.film.title!,
             style: const TextStyle(
-              color: Color.fromARGB(255, 248, 30, 67),
+              color: Color.fromRGBO(253,1,120, 1),
               fontSize: 14,
             ),
             overflow: TextOverflow.ellipsis,

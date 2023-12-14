@@ -160,7 +160,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                         // While data is being fetched, show a loading indicator
                         return Center(
                           child: CircularProgressIndicator(
-                            color: Color.fromARGB(255, 248, 30, 67),
+                            color: Color.fromRGBO(253,1,120, 1),
                           ),
                         );
                       } else if (snapshot.hasError) {

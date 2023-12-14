@@ -149,7 +149,7 @@ class _SignInState extends State<SignIn> {
                           style: TextStyle(
                             fontFamily: 'Raleway',
                             fontSize: 15,
-                            color: Color.fromARGB(255, 248, 30, 67),
+                            color: Color.fromRGBO(253,1,120, 1),
                           ),
                         ),
                       ),

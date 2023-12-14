@@ -59,7 +59,7 @@ class _MoviesState extends State<Movies> {
                 child: const Align(
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(
-                    color: Color.fromARGB(255, 248, 30, 67),
+                    color: Color.fromRGBO(253,1,120, 1),
                   ),
                 ),
               );
@@ -211,7 +211,7 @@ class _MoviesState extends State<Movies> {
                   child: const Align(
                     alignment: Alignment.center,
                     child: CircularProgressIndicator(
-                      color: Color.fromARGB(255, 248, 30, 67),
+                      color: Color.fromRGBO(253,1,120, 1),
                     ),
                   ),
                 );

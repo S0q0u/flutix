@@ -28,10 +28,10 @@ class RowButtons extends StatelessWidget {
               width: width / 2 - 40,
               child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color.fromARGB(255, 248, 30, 67),
+                    foregroundColor: const Color.fromRGBO(253,1,120, 1),
                     side: const BorderSide(
                       width: 1,
-                      color: const Color.fromARGB(255, 248, 30, 67),
+                      color: const Color.fromRGBO(253,1,120, 1),
                     ),
                   ),
                   onPressed: () => onPressedBack(),
@@ -50,7 +50,7 @@ class RowButtons extends StatelessWidget {
               width: width / 2 - 40,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 248, 30, 67),
+                  backgroundColor: const Color.fromRGBO(253,1,120, 1),
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () => onPressedContinue(),

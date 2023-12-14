@@ -18,7 +18,7 @@ class SuccessPage extends StatelessWidget {
               Text(
                 'Your account preference has \n been saved!',
                 style: GoogleFonts.raleway(
-                  color: Color.fromARGB(255, 248, 30, 67),
+                  color: Color.fromRGBO(253,1,120, 1),
                   fontSize: 25,
                 ),
                 textAlign: TextAlign.center,
@@ -30,7 +30,7 @@ class SuccessPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: const Color.fromARGB(255, 248, 30, 67),
+                    color: const Color.fromRGBO(253,1,120, 1),
                     width: 5,
                   ),
                   image: DecorationImage(
@@ -46,7 +46,7 @@ class SuccessPage extends StatelessWidget {
               Text(
                 'Welcome,',
                 style: GoogleFonts.raleway(
-                  color: Color.fromARGB(255, 248, 30, 67),
+                  color: Color.fromRGBO(253,1,120, 1),
                   fontSize: 25,
                 ),
               ),
@@ -60,7 +60,7 @@ class SuccessPage extends StatelessWidget {
                   ));
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 248, 30, 67),
+                  backgroundColor: const Color.fromRGBO(253,1,120, 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
@@ -94,7 +94,7 @@ class SuccessPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                     side: const BorderSide(
-                      color: Color.fromARGB(255, 248, 30, 67),
+                      color: Color.fromRGBO(253,1,120, 1),
                       width: 1,
                     ),
                   ),
@@ -106,7 +106,7 @@ class SuccessPage extends StatelessWidget {
                   child: Text(
                     'Back',
                     style: GoogleFonts.raleway(
-                      color: Color.fromARGB(255, 248, 30, 67),
+                      color: Color.fromRGBO(253,1,120, 1),
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
