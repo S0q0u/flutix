@@ -90,7 +90,6 @@ class _UserProfileState extends State<UserProfile> {
       child: Container(
         height: 100,
         width: 150,
-        //margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
           color: _selections1[index] ? Colors.pink : const Color.fromRGBO(34, 35, 53, 1),
         ),
@@ -142,10 +141,18 @@ class _UserProfileState extends State<UserProfile> {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.transparent,
-        automaticallyImplyLeading: true,
-        // shadowColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color:Colors.black,
+          ),
+        ),
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
         child: Column(

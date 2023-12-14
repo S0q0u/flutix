@@ -18,7 +18,7 @@ class SuccessPage extends StatelessWidget {
               Text(
                 'Your account preference has \n been saved!',
                 style: GoogleFonts.raleway(
-                  color: Color.fromRGBO(253,1,120, 1),
+                  color: Color.fromARGB(255, 248, 30, 67),
                   fontSize: 25,
                 ),
                 textAlign: TextAlign.center,
@@ -30,7 +30,7 @@ class SuccessPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: const Color.fromRGBO(253,1,120, 1),
+                    color: const Color.fromARGB(255, 248, 30, 67),
                     width: 5,
                   ),
                   image: DecorationImage(
@@ -46,11 +46,18 @@ class SuccessPage extends StatelessWidget {
               Text(
                 'Welcome,',
                 style: GoogleFonts.raleway(
-                  color: Color.fromRGBO(253,1,120, 1),
+                  color: Color.fromARGB(255, 248, 30, 67),
                   fontSize: 25,
                 ),
               ),
-              const SizedBox(height: 100),
+            Text(
+              userData.data!.nama!,
+              style: GoogleFonts.raleway(
+                  color: Colors.black,
+                  fontSize: 24,
+                ),
+            ),
+            const SizedBox(height:90),
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -60,7 +67,7 @@ class SuccessPage extends StatelessWidget {
                   ));
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(253,1,120, 1),
+                  backgroundColor: const Color.fromARGB(255, 248, 30, 67),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
@@ -85,7 +92,7 @@ class SuccessPage extends StatelessWidget {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) {
                       Auth().signOut();
-                      return const SignIn();
+                      return const UserProfile();
                     },
                   ));
                 },
@@ -94,7 +101,7 @@ class SuccessPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                     side: const BorderSide(
-                      color: Color.fromRGBO(253,1,120, 1),
+                      color: Color.fromARGB(255, 248, 30, 67),
                       width: 1,
                     ),
                   ),
@@ -106,7 +113,7 @@ class SuccessPage extends StatelessWidget {
                   child: Text(
                     'Back',
                     style: GoogleFonts.raleway(
-                      color: Color.fromRGBO(253,1,120, 1),
+                      color: Color.fromARGB(255, 248, 30, 67),
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
