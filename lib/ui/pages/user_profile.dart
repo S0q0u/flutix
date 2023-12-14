@@ -36,11 +36,6 @@ class _UserProfileState extends State<UserProfile> {
     'Portuguese'
   ];
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   Future<void> saveSelectedGenres(BuildContext context) async {
     List<String> selectedGenres = [];
     for (int i = 0; i < _selections1.length; i++) {
@@ -118,7 +113,6 @@ class _UserProfileState extends State<UserProfile> {
       child: Container(
         height: 100,
         width: 150,
-        //margin: const EdgeInsets.only(left: 20, bottom: 20),
         decoration: BoxDecoration(
           color: _selections2[index] ? Colors.pink : const Color.fromRGBO(34, 35, 53, 1),
         ),

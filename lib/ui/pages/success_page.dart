@@ -29,6 +29,7 @@ class SuccessPage extends StatelessWidget {
                 height: 150,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
+                  color: Color.fromARGB(255, 223, 128, 144),
                   border: Border.all(
                     color: const Color.fromARGB(255, 248, 30, 67),
                     width: 5,

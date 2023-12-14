@@ -49,18 +49,14 @@ class _MyWidgetState extends State<SplashPage> {
                 color: Colors.black,
               ),
             ),
-            const SizedBox(
-              height: 40,
-            ),
+            const SizedBox(height: 40,),
             Expanded(
               child: Align(
-                // alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    // foregroundColor: const Color(0xFFDAA520),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    backgroundColor: const Color(0xFFFD0178),
+                    backgroundColor: Color.fromARGB(255, 227, 0, 106),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
                   ),
@@ -89,7 +85,7 @@ class _MyWidgetState extends State<SplashPage> {
                     color: Colors.black,
                   ),
                 ),
-                InkWell(
+                GestureDetector(
                   onTap: () {
                     setState(() {
                       signinPressed = !signinPressed;
@@ -105,7 +101,7 @@ class _MyWidgetState extends State<SplashPage> {
                       fontWeight: FontWeight.bold,
                       color: signinPressed
                           ? Color.fromARGB(255, 227, 0, 106)
-                          : const Color(0xFFFD0178),
+                          : const Color.fromARGB(255, 227, 0, 106),
                       fontSize: 13,
                       decoration: TextDecoration.underline,
                     ),
